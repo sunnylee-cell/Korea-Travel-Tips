@@ -47,7 +47,7 @@
                 }
             }
         }
-    </script>
+  </script>
     <style>
         /* Apply rounded fonts globally */
         body {
@@ -246,7 +246,7 @@
                 </div>
             </div>
 
-            <!-- Right Side: Health Diagnostic & Draft Vault (5 Cols) -->
+            <!-- Right Side: Health Diagnostic, Converter & Draft Vault (5 Cols) -->
             <div class="lg:col-span-5 flex flex-col gap-6">
                 
                 <!-- Q-Code Luxury Assessment -->
@@ -332,7 +332,7 @@
         </div>
 
         <!-- Official Portals Section -->
-        <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+        <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
             <div class="mb-6">
                 <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🔗 韓國官方申報通道安全指引</h2>
                 <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">請務必使用政府官方入口網站</p>
@@ -387,18 +387,107 @@
             </div>
         </section>
 
-    </main>
-
-    <!-- Premium Rounded Footer -->
-    <footer class="bg-brand-slate text-white/50 text-[10px] font-bold tracking-wider uppercase py-10 mt-10 rounded-t-[32px] border-t border-brand-sand/10">
-        <div class="container mx-auto px-6 max-w-4xl space-y-4 text-center">
-            <p class="text-white text-xs font-extrabold italic">Seoul Entry Companion 2026</p>
-            <p class="opacity-70 max-w-2xl mx-auto leading-relaxed font-medium lowercase">
-                disclaimer: This interactive application is prepared for traveler convenience. Official rules are subject to change and should be verified at official ministries of immigration and public health.
+        <!-- Live Currency Converter Tool (2026 Rate) -->
+        <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
+            <div class="mb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                <div>
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">💱 2026 匯率換算器</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">台幣 TWD ⇄ 韓元 KRW</p>
+                </div>
+                <span class="text-[10px] bg-brand-teal/10 text-brand-tealDark font-extrabold px-3 py-1.5 rounded-full border border-brand-teal/20">1 TWD ≈ 47.8 KRW</span>
+            </div>
+            
+            <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
+                快速預估出遊購物預算，雙向即時輸入與連動更新：
             </p>
-            <p class="text-brand-coral font-bold pt-2">© 2026 Korea Travel Lab. All rights reserved.</p>
-        </div>
-    </footer>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-brand-cream border border-brand-sand p-3 rounded-2xl">
+                    <label class="block text-[10px] font-bold text-brand-slate/50 uppercase tracking-wider mb-1">新台幣 TWD</label>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs font-bold text-brand-slate/60">NT$</span>
+                        <input type="number" id="calc-twd" value="1000" class="w-full bg-transparent text-sm font-extrabold text-brand-slate focus:outline-none" />
+                    </div>
+                </div>
+                <div class="bg-brand-cream border border-brand-sand p-3 rounded-2xl">
+                    <label class="block text-[10px] font-bold text-brand-slate/50 uppercase tracking-wider mb-1">韓元 KRW</label>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs font-bold text-brand-slate/60">₩</span>
+                        <input type="number" id="calc-krw" value="47800" class="w-full bg-transparent text-sm font-extrabold text-brand-slate focus:outline-none" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✈️ Travel Tips Section -->
+        <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+            <div class="mb-4">
+                <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✈️ Travel Tips</h2>
+                <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">首爾自由行行前必備實用小知識</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Tip 1: Power bank -->
+                <div class="bg-brand-coralLight/40 border border-brand-coral/20 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg shrink-0">🔋</span>
+                            <h4 class="font-extrabold text-sm text-brand-slate">行動電源標示及包裝</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
+                            韓國最新航空安檢規定要求，行動電源必須隨身攜帶，不可托運，並使用透明夾鏈袋單獨包裝，行動電源本體需清楚標示「Wh」容量資訊，若僅標示 mAh可能拒絕攜帶，或直接丟棄。
+                        </p>
+                    </div>
+                    <span class="text-[10px] text-brand-coral font-bold uppercase tracking-wider mt-4">標示磨損 or 無Wh資訊可能被拒</span>
+                </div>
+
+                <!-- Tip 3: Outlet -->
+                <div class="bg-brand-cream border border-brand-sand p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg shrink-0">🔌</span>
+                            <h4 class="font-extrabold text-sm text-brand-slate">韓國使用 220V 圓孔插座</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
+                            韓國電壓為 **220V**，插座為**雙圓孔（Type C/F）**。建議購買專用轉接頭（圓腳直徑為 4.8mm），不要買到直徑較細的 4.0mm 歐規轉接頭，以免尺寸不合導致插座接觸不良或鬆脫。
+                        </p>
+                    </div>
+                    <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider mt-4">請認明韓德規格 4.8mm 粗圓頭</span>
+                </div>
+
+                <!-- Tip 4: eSIM -->
+                <div class="bg-brand-tealLight/40 border border-brand-teal/20 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg shrink-0">📶</span>
+                            <h4 class="font-extrabold text-sm text-brand-slate">提前完成 eSIM 或漫遊設定</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
+                            為了確保抵達韓國機場時，能第一時間上網出示線上填報的 e-Arrival Card 入境條碼，**強烈建議在台灣起飛登機前，先掃描 eSIM QR Code 並在手機中安裝好**。下飛機後切換數據開關即能秒速連網！
+                        </p>
+                    </div>
+                    <span class="text-[10px] text-brand-tealDark font-bold uppercase tracking-wider mt-4">抵達韓國下機秒上網</span>
+                </div>
+
+                <!-- Tip 5: Weather and Outfits -->
+                <div class="bg-amber-50 border border-brand-gold/20 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-lg shrink-0">☀️</span>
+                            <h4 class="font-extrabold text-sm text-brand-slate">首爾 6 月氣候與穿搭</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
+                            首爾 6 月正值初夏（約 18°C ~ 27°C），白天日照強烈、偏熱，適合穿著**透氣短袖與棉麻衣物**。但早晚仍有涼意且**室內冷氣極強**，強烈建議隨身攜帶一件**薄外套**。
+                        </p>
+                    </div>
+                    <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider mt-4">洋蔥式穿搭與避暑防涼</span>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
 
     <script>
         // Default checklist templates
@@ -430,6 +519,7 @@
             renderChecklists();
             setupCountdown();
             setupDraftListeners();
+            setupCurrencyConverter();
         };
 
         // Save State
@@ -683,6 +773,30 @@
             });
         }
 
+        function setupCurrencyConverter() {
+            const twdInput = document.getElementById('calc-twd');
+            const krwInput = document.getElementById('calc-krw');
+            const rate = 47.8; // 1 TWD = 47.8 KRW
+
+            twdInput.addEventListener('input', function() {
+                const twdValue = parseFloat(this.value);
+                if (!isNaN(twdValue)) {
+                    krwInput.value = Math.round(twdValue * rate);
+                } else {
+                    krwInput.value = '';
+                }
+            });
+
+            krwInput.addEventListener('input', function() {
+                const krwValue = parseFloat(this.value);
+                if (!isNaN(krwValue)) {
+                    twdInput.value = Math.round((krwValue / rate) * 10) / 10;
+                } else {
+                    twdInput.value = '';
+                }
+            });
+        }
+
         function copyDraft(fieldId) {
             const input = document.getElementById(fieldId);
             if (!input.value.trim()) {
@@ -737,3 +851,4 @@
     </script>
 </body>
 </html>
+
