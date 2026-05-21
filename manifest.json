@@ -1,6 +1,6 @@
 {
-  "name": "Korea Travel Information",
-  "short_name": "Travel Information",
+  "name": "Korea Travel Tips",
+  "short_name": "Travel Tips",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
