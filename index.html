@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App Icon / PWA Settings -->
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Korea Travel Information">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#fbf9f4">
+    <title>2026韓國入境規則懶人包</title>
+    <!-- Google Fonts: Fredoka & M PLUS Rounded 1c for rounded aesthetic, plus Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: '#14b8a6',        // Vibrant Teal
+                            tealDark: '#0d9488',    // Deep Teal
+                            tealLight: '#f0fdfa',   // Ultra light teal background
+                            coral: '#ff6b5a',       // Pop Coral for accents
+                            coralLight: '#fff1f0',  // Warm light coral background
+                            coralHover: '#e05342',  // Darker Coral for hover
+                            gold: '#d9a74a',        // Mustard gold
+                            cream: '#fbf9f4',       // Soft premium warm cream base
+                            sand: '#f4ede1',        // Soft sand beige
+                            slate: '#1e293b'        // Rounded dark text color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Fredoka', 'M PLUS Rounded 1c', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft-sm': '0 4px 12px rgba(20, 184, 166, 0.05)',
+                        'soft-md': '0 8px 30px rgba(30, 41, 59, 0.06)',
+                        'soft-lg': '0 20px 40px -15px rgba(255, 107, 90, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Apply rounded fonts globally */
+        body {
+            font-family: 'Fredoka', 'M PLUS Rounded 1c', 'Noto Sans TC', sans-serif;
+            background-color: #fbf9f4;
+        }
+        /* Custom delicate rounded scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fbf9f4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14b8a6;
+        }
+    </style>
+</head>
+<body class="text-brand-slate min-h-screen flex flex-col antialiased selection:bg-brand-coral/20 selection:text-brand-slate">
+
+    <!-- Premium top colorful bar -->
+    <div class="h-[6px] w-full bg-gradient-to-r from-brand-teal via-brand-coral to-brand-gold"></div>
+
+    <!-- Main Fluid Container -->
+    <main class="flex-grow container mx-auto px-6 py-8 max-w-5xl">
+        
+        <!-- Modern Rounded Editorial Header -->
+        <header class="text-center mb-10 relative py-10 px-6 bg-white rounded-[32px] border border-brand-sand shadow-soft-md overflow-hidden">
+            <!-- Background floating shape for playfulness -->
+            <div class="absolute -right-12 -bottom-12 text-[150px] opacity-[0.04] rotate-[15deg] pointer-events-none select-none">✈️</div>
+            
+            <span class="inline-flex items-center gap-1.5 bg-brand-teal/10 text-brand-tealDark text-xs font-semibold px-4 py-2 rounded-full mb-6 border border-brand-teal/20">
+                <i class="fa-solid fa-passport"></i> 適用持台灣、日本、美國護照赴韓短期旅遊、商務
+            </span>
+            
+            <h1 class="text-3xl md:text-5xl font-extrabold text-brand-slate leading-tight mb-6 tracking-wide">
+                SEOUL GO! <span class="text-brand-coral font-bold italic">2026</span>
+            </h1>
+            
+            <!-- Paragraph layout optimized with responsive line breaks -->
+            <p class="text-brand-slate/80 text-sm md:text-base font-semibold max-w-2xl mx-auto leading-relaxed text-center mb-8">
+                前往韓國首爾！最新免簽、免 K-ETA、以及全新的 e-Arrival Card 新制，<br class="hidden md:inline"/>
+                <span class="text-brand-coral">只要 3 分鐘</span>，帶您一次看懂、輕鬆填寫！
+            </p>
+
+            <!-- Expanded Wide Interactive Countdown & Gold Window Widget -->
+            <div class="max-w-2xl mx-auto bg-brand-cream border border-brand-sand/70 p-5 rounded-2xl shadow-inner flex flex-col gap-4">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-brand-coral text-xl bg-white p-2.5 rounded-full shadow-sm"><i class="fa-regular fa-calendar-days"></i></span>
+                        <div class="text-left">
+                            <h4 class="font-bold text-sm text-brand-slate">我的出發日期 Departure</h4>
+                            <!-- Use whitespace-nowrap to avoid ugly wrapping of descriptive text -->
+                            <p class="text-xs text-brand-slate/60 whitespace-nowrap">設定日期以計算最佳填報日</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2.5 w-full sm:w-auto">
+                        <input type="date" id="departure-date" class="bg-white text-brand-slate text-xs font-bold px-4 py-2.5 rounded-xl border border-brand-sand focus:outline-none focus:ring-2 focus:ring-brand-teal/50 w-full sm:w-auto text-center cursor-pointer shadow-sm" />
+                        <div id="countdown-display" class="font-bold text-xs bg-brand-teal text-white px-4 py-2.5 rounded-xl text-center min-w-[110px] uppercase tracking-wider">
+                            請選擇日期
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gold fill window projection block (hidden until date is selected) -->
+                <div id="gold-window-container" class="hidden transition-all duration-500 ease-out border-t border-brand-sand/60 pt-3 text-left">
+                    <div class="bg-white border border-brand-teal/20 px-4 py-3 rounded-xl flex items-start gap-3">
+                        <span class="text-brand-teal text-sm mt-0.5"><i class="fa-solid fa-clock-rotate-left animate-pulse"></i></span>
+                        <div>
+                            <h5 class="text-xs font-bold text-brand-tealDark">💡 最佳黃金填報時間 (起飛前 72 小時)</h5>
+                            <p id="gold-window-text" class="text-[11px] text-brand-slate/80 mt-1 font-medium leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Core New Rules Cards (Three pillars with playful shapes) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            
+            <!-- Card 1: Visa -->
+            <div class="bg-brand-tealLight/50 p-6 rounded-3xl border border-brand-teal/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-10 h-10 bg-brand-teal text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">
+                        🛂
+                    </div>
+                    <span class="text-[10px] uppercase tracking-wider text-brand-tealDark font-bold block mb-1">停留天數 Limit</span>
+                    <h3 class="text-lg font-extrabold text-brand-slate mb-2">90 天觀光免簽證</h3>
+                    <p class="text-xs text-brand-slate/70 font-medium leading-relaxed">
+                        持適用國普通護照（效期內），以觀光、商務、探親等目的入境，最長可停留 <strong class="text-brand-tealDark">90 天</strong>。
+                    </p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-brand-teal/10 text-[10px] text-brand-tealDark font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-check"></i> 觀光說走就走，免辦紙本簽
+                </div>
+            </div>
+
+            <!-- Card 2: K-ETA -->
+            <div class="bg-brand-coralLight/50 p-6 rounded-3xl border border-brand-coral/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-10 h-10 bg-brand-coral text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">
+                        🙅‍♂️
+                    </div>
+                    <span class="text-[10px] uppercase tracking-wider text-brand-coral font-bold block mb-1">特別免除 Exemption</span>
+                    <h3 class="text-lg font-extrabold text-brand-slate mb-2">K-ETA 暫免申請</h3>
+                    <p class="text-xs text-brand-slate/70 font-medium leading-relaxed">
+                        為推廣觀光，官方再度延長豁免！至 <strong class="text-brand-coral">2026 年 12 月 31 日</strong> 前，台灣、日本、美國旅客免申請、免費用！
+                    </p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-brand-coral/10 text-[10px] text-brand-coral font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-piggy-bank"></i> 現省 10,000 韓元規費
+                </div>
+            </div>
+
+            <!-- Card 3: e-Arrival Card -->
+            <div class="bg-amber-50 p-6 rounded-3xl border border-brand-gold/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-10 h-10 bg-brand-gold text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">
+                        📱
+                    </div>
+                    <span class="text-[10px] uppercase tracking-wider text-brand-gold font-bold block mb-1">無紙通關 Electronic</span>
+                    <h3 class="text-lg font-extrabold text-brand-slate mb-2">e-Arrival 電子申報</h3>
+                    <p class="text-xs text-brand-slate/70 font-medium leading-relaxed">
+                        2026 最新政策！全面取代舊紙本入境卡。建議於入境前 <strong class="text-brand-gold">72 小時內</strong> 線上免費填寫取得通關條碼。
+                    </p>
+                </div>
+                <div class="mt-6 pt-3 border-t border-brand-gold/10 text-[10px] text-brand-gold font-bold uppercase tracking-wider flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt"></i> 下機掃碼秒過關，免排隊找筆
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Dynamic Minimal Toast System -->
+        <div id="notification-toast" class="hidden fixed bottom-6 right-6 z-50 bg-brand-slate text-white px-6 py-4 rounded-2xl shadow-soft-lg flex items-center gap-4 border border-brand-teal/20 max-w-sm transition-all duration-300">
+            <span id="toast-icon" class="text-brand-teal text-base"><i class="fa-solid fa-circle-info"></i></span>
+            <div class="flex-1 text-xs font-medium tracking-wide" id="toast-message">MESSAGGIO</div>
+            <button onclick="dismissToast()" class="text-white/50 hover:text-white transition-colors text-xs p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Interactive Checklists & Diagnostic Area -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+            
+            <!-- Left Side: Interactive Checklist Catalog (7 Cols) -->
+            <div class="lg:col-span-7">
+                <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                    <div class="flex items-start justify-between mb-6 flex-wrap gap-4">
+                        <div>
+                            <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🧳 行前Check-list</h2>
+                            <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">出發前依序勾選即可安心出遊</p>
+                        </div>
+                        <button onclick="resetChecklist()" class="text-xs tracking-wider uppercase font-extrabold text-brand-slate/40 hover:text-brand-coral transition-colors flex items-center gap-1.5 bg-brand-cream px-3 py-2 rounded-full border border-brand-sand/50">
+                            <i class="fa-solid fa-rotate-right text-[10px]"></i> 重置進度
+                        </button>
+                    </div>
+
+                    <!-- Minimalist Rounded Checklist Items -->
+                    <div class="space-y-6">
+                        
+                        <!-- Group 1 -->
+                        <div>
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-tealDark bg-brand-teal/10 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                01 / e-Arrival Card網上填報必備
+                            </h4>
+                            <div class="space-y-2.5" id="checklist-group-1">
+                                <!-- Dynamic checklists render here -->
+                            </div>
+                        </div>
+
+                        <!-- Group 3 (Renamed to 02 as Group 2 was deleted) -->
+                        <div>
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-gold bg-amber-100 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                02 / 自訂個人行李或準備清單
+                            </h4>
+                            <div class="space-y-2.5 mb-4" id="checklist-group-3">
+                                <!-- Dynamic custom items render here -->
+                            </div>
+
+                            <!-- Custom item insert input -->
+                            <div class="flex gap-2 mt-4 bg-brand-cream p-1.5 rounded-2xl border border-brand-sand">
+                                <input type="text" id="new-item-input" placeholder="加點隨身好物...如轉接頭、隨身小包" class="flex-1 bg-transparent text-xs px-3 py-2.5 rounded-xl border-none focus:outline-none placeholder:text-brand-slate/30" />
+                                <button onclick="addNewChecklistItem()" class="bg-brand-teal hover:bg-brand-tealDark text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-sm active:scale-95">
+                                    新增
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Health Diagnostic & Draft Vault (5 Cols) -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
+                
+                <!-- Q-Code Luxury Assessment -->
+                <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🏥 我要填 Q-Code 嗎？</h2>
+                        <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">健康狀態事前登入評估</p>
+                    </div>
+
+                    <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
+                        2026年韓國已常態化免除「無症狀者」的健康申報。請點選您目前的身體健康狀態：
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 p-1 bg-brand-cream border border-brand-sand rounded-2xl mb-4">
+                        <button id="btn-qcode-normal" onclick="toggleQCode('normal')" class="py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm">
+                            無症狀 / 身體良好
+                        </button>
+                        <button id="btn-qcode-symptom" onclick="toggleQCode('symptom')" class="py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl">
+                            有疑似症狀/不適
+                        </button>
+                    </div>
+
+                    <!-- Result Panel with round soft corners -->
+                    <div id="qcode-result-box" class="p-4 border transition-all duration-500 bg-brand-tealLight border-brand-teal/20 rounded-2xl">
+                        <div class="flex items-start gap-3">
+                            <span class="text-brand-teal text-base mt-0.5" id="qcode-result-icon"><i class="fa-solid fa-circle-check"></i></span>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-tealDark mb-1" id="qcode-result-title">免填 Q-Code 健康聲明</h4>
+                                <p class="text-xs text-brand-slate/70 font-medium leading-relaxed" id="qcode-result-desc">
+                                    身體狀況良好的情況下，入境韓國<b>不需</b>申報 Q-Code 或填寫黃色紙本健康聲明。直接通關入境即可！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- e-Arrival Card Draft Vault with pre-filled premium values -->
+                <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📝 申報快速複製區</h2>
+                        <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">預設填報資訊暫存庫</p>
+                    </div>
+                    
+                    <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
+                        填寫官方 e-Arrival Card 時需頻繁輸入英文，您可以直接點擊右側按鈕快速複製預設飯店資訊！
+                    </p>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">英文飯店名稱 (Hotel Name)</label>
+                            <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
+                                <input type="text" id="draft-hotel" value="THE PLAZA Seoul" placeholder="如 Four Seasons Hotel Seoul" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none placeholder:text-brand-slate/25" />
+                                <button onclick="copyDraft('draft-hotel')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">英文飯店地址 (Hotel Address)</label>
+                            <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
+                                <textarea id="draft-address" rows="2" placeholder="如 119 Sogong-ro, Jung-gu, Seoul" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none resize-none placeholder:text-brand-slate/25">119 Sogong-ro, Jung-gu, Seoul</textarea>
+                                <button onclick="copyDraft('draft-address')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">飯店聯絡電話 (Hotel Phone)</label>
+                            <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
+                                <input type="text" id="draft-phone" value="+82 2-771-2200" placeholder="如 +82 2-771-2200" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none placeholder:text-brand-slate/25" />
+                                <button onclick="copyDraft('draft-phone')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Official Portals Section -->
+        <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+            <div class="mb-6">
+                <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🔗 韓國官方申報通道安全指引</h2>
+                <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">請務必使用政府官方入口網站</p>
+            </div>
+
+            <!-- Caution Banner -->
+            <div class="border border-brand-gold/30 bg-amber-50 p-5 text-brand-slate text-xs rounded-2xl mb-6 flex gap-3.5 leading-relaxed">
+                <span class="text-brand-gold text-lg mt-0.5"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <div>
+                    <strong class="font-extrabold uppercase tracking-wider block mb-1">🚨 防網路詐騙安全提醒 / Anti-Scam</strong>
+                    目前網路上有大量假冒官方政府的釣魚申報代辦網頁。除了 K-ETA 的固有手續費（目前美、日、台短期觀光旅客暫免）之外，**線上申報入境卡（e-Arrival Card）是完全免費的服務**，千萬不要付代辦費！認明網址後綴為 <strong class="underline font-extrabold text-brand-tealDark">.go.kr</strong> 的才是正牌韓國政府官網。
+                </div>
+            </div>
+
+            <!-- URL Table in rounded format -->
+            <div class="overflow-x-auto rounded-2xl border border-brand-sand">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="bg-brand-cream text-brand-slate/70 uppercase tracking-wider font-bold border-b border-brand-sand">
+                            <th class="p-4">申報項目 / Service</th>
+                            <th class="p-4 hidden md:table-cell">官方網址 / Domain</th>
+                            <th class="p-4 text-right">快速前往 / Go</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-brand-sand">
+                        <tr class="hover:bg-brand-tealLight/30 transition-colors">
+                            <td class="p-4">
+                                <div class="font-extrabold text-brand-slate">e-Arrival Card 線上入境卡</div>
+                                <div class="text-[10px] text-brand-slate/50 mt-0.5">出發前72小時內免費線上填報</div>
+                            </td>
+                            <td class="p-4 text-brand-slate/60 font-mono hidden md:table-cell">e-arrivalcard.go.kr</td>
+                            <td class="p-4 text-right">
+                                <a href="https://www.e-arrivalcard.go.kr/portal/main/index.do" target="_blank" class="inline-block bg-brand-teal hover:bg-brand-tealDark text-white text-[10px] font-extrabold uppercase tracking-wider py-2 px-4 rounded-xl transition-all shadow-sm">
+                                    線上申報 <i class="fa-solid fa-up-right-from-square text-[8px] ml-1"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-amber-50 transition-colors">
+                            <td class="p-4">
+                                <div class="font-extrabold text-brand-slate">Q-Code 檢疫事前健康輸入系統</div>
+                                <div class="text-[10px] text-brand-slate/50 mt-0.5">有發熱等異常症狀、傳染病風險地區者填報</div>
+                            </td>
+                            <td class="p-4 text-brand-slate/60 font-mono hidden md:table-cell">qcode.kdca.go.kr</td>
+                            <td class="p-4 text-right">
+                                <a href="https://qcode.kdca.go.kr" target="_blank" class="inline-block border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white text-[10px] font-extrabold uppercase tracking-wider py-2 px-4 rounded-xl transition-all">
+                                    Q-Code 官網 <i class="fa-solid fa-up-right-from-square text-[8px] ml-1"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Premium Rounded Footer -->
+    <footer class="bg-brand-slate text-white/50 text-[10px] font-bold tracking-wider uppercase py-10 mt-10 rounded-t-[32px] border-t border-brand-sand/10">
+        <div class="container mx-auto px-6 max-w-4xl space-y-4 text-center">
+            <p class="text-white text-xs font-extrabold italic">Seoul Entry Companion 2026</p>
+            <p class="opacity-70 max-w-2xl mx-auto leading-relaxed font-medium lowercase">
+                disclaimer: This interactive application is prepared for traveler convenience. Official rules are subject to change and should be verified at official ministries of immigration and public health.
+            </p>
+            <p class="text-brand-coral font-bold pt-2">© 2026 Korea Travel Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Default checklist templates
+        const defaultChecklist = {
+            group1: [
+                { id: 'item-upload', text: '上傳護照內頁、填寫基本資料', checked: false },
+                { id: 'item-email', text: '有效電子郵件（接收簽發編號）', checked: false },
+                { id: 'item-flight-date', text: '入境/離境日期及航班號碼', checked: false },
+                { id: 'item-hotel-info', text: '韓國住宿之飯店英文地址與聯絡電話', checked: false },
+                { id: 'item-save-pdf', text: 'e-Arrival Card填寫送出後存PDF檔或截圖備用', checked: false }
+            ],
+            group3: [
+                { id: 'item-esim-roaming', text: '開通門號國際漫遊或購買 e-SIM', checked: false },
+                { id: 'item-custom-1', text: '適量韓元現金與具有海外高回饋的信用卡', checked: false }
+            ]
+        };
+
+        // App States
+        let appState = {
+            checklist: JSON.parse(JSON.stringify(defaultChecklist)),
+            departureDate: '',
+            draftHotel: 'THE PLAZA Seoul',
+            draftAddress: '119 Sogong-ro, Jung-gu, Seoul',
+            draftPhone: '+82 2-771-2200'
+        };
+
+        window.onload = function() {
+            loadState();
+            renderChecklists();
+            setupCountdown();
+            setupDraftListeners();
+        };
+
+        // Save State
+        function saveState() {
+            localStorage.setItem('korea_round_travel_2026', JSON.stringify(appState));
+        }
+
+        // Load State
+        function loadState() {
+            const saved = localStorage.getItem('korea_round_travel_2026');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    if (parsed.checklist) appState.checklist = parsed.checklist;
+                    
+                    // Force update group1 to align with newest modified items
+                    appState.checklist.group1 = JSON.parse(JSON.stringify(defaultChecklist.group1));
+                    
+                    // Filter out removed items from group3
+                    appState.checklist.group3 = appState.checklist.group3.filter(i => i.id !== 'item-custom-2' && i.id !== 'item-custom-new-traffic');
+                    
+                    // Remove group2 completely if present
+                    if (appState.checklist.group2) {
+                        delete appState.checklist.group2;
+                    }
+
+                    // Fallback validation for dynamic checklist modifications (ensure esim is there)
+                    if (!appState.checklist.group3.some(i => i.id === 'item-esim-roaming')) {
+                        appState.checklist.group3 = [
+                            { id: 'item-esim-roaming', text: '開通門號國際漫遊或購買 e-SIM', checked: false },
+                            ...appState.checklist.group3.filter(i => i.id !== 'item-esim-roaming')
+                        ];
+                    }
+
+                    // Dynamically update old data text to remove "雙幣" without requiring reset
+                    const customCreditCardItem = appState.checklist.group3.find(i => i.id === 'item-custom-1');
+                    if (customCreditCardItem) {
+                        customCreditCardItem.text = '適量韓元現金與具有海外高回饋的信用卡';
+                    }
+
+                    if (parsed.departureDate) {
+                        appState.departureDate = parsed.departureDate;
+                        document.getElementById('departure-date').value = parsed.departureDate;
+                    }
+                    if (parsed.draftHotel) {
+                        appState.draftHotel = parsed.draftHotel;
+                    }
+                    if (parsed.draftAddress) {
+                        appState.draftAddress = parsed.draftAddress;
+                    }
+                    if (parsed.draftPhone) {
+                        appState.draftPhone = parsed.draftPhone;
+                    }
+                } catch (e) {
+                    console.error("Local state loading issue.", e);
+                }
+            }
+            
+            // Render UI fields
+            document.getElementById('draft-hotel').value = appState.draftHotel;
+            document.getElementById('draft-address').value = appState.draftAddress;
+            document.getElementById('draft-phone').value = appState.draftPhone;
+        }
+
+        function renderChecklists() {
+            renderGroup('checklist-group-1', appState.checklist.group1, 'group1');
+            renderGroup('checklist-group-3', appState.checklist.group3, 'group3');
+        }
+
+        function renderGroup(elementId, items, groupKey) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = '';
+            
+            if (items.length === 0) {
+                container.innerHTML = `<p class="text-[11px] text-brand-slate/40 italic py-2">目前清單內無項目</p>`;
+                return;
+            }
+
+            items.forEach((item, index) => {
+                const isChecked = item.checked;
+                const checkedBgClass = isChecked ? 'bg-brand-cream border-brand-sand text-brand-slate/40' : 'bg-white border-brand-sand hover:border-brand-teal text-brand-slate';
+                const checkedTextClass = isChecked ? 'line-through text-brand-slate/40 font-medium' : 'font-semibold';
+                const checkboxStyle = isChecked ? 'bg-brand-teal border-brand-teal text-white' : 'border-brand-sand bg-brand-cream';
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.className = `todo-item flex items-center justify-between p-3.5 border rounded-2xl transition-all duration-300 ${checkedBgClass}`;
+                
+                itemDiv.innerHTML = `
+                    <div class="flex items-center gap-3 cursor-pointer flex-1" onclick="toggleItem('${groupKey}', ${index})">
+                        <div class="w-5 h-5 rounded-lg border flex items-center justify-center transition-all duration-300 ${checkboxStyle} shrink-0">
+                            ${isChecked ? '<i class="fa-solid fa-check text-[10px]"></i>' : ''}
+                        </div>
+                        <span class="text-xs leading-relaxed ${checkedTextClass}">${item.text}</span>
+                    </div>
+                    ${groupKey === 'group3' ? `
+                        <button onclick="deleteCustomItem(${index}); event.stopPropagation();" class="text-brand-slate/40 hover:text-brand-coral p-1.5 transition-colors duration-200">
+                            <i class="fa-regular fa-trash-can text-xs"></i>
+                        </button>
+                    ` : ''}
+                `;
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function toggleItem(groupKey, index) {
+            appState.checklist[groupKey][index].checked = !appState.checklist[groupKey][index].checked;
+            saveState();
+            renderChecklists();
+        }
+
+        function addNewChecklistItem() {
+            const input = document.getElementById('new-item-input');
+            const val = input.value.trim();
+            if (!val) {
+                showToast('請先輸入想要打包或準備的品項！', 'warning');
+                return;
+            }
+
+            const newItem = {
+                id: 'custom-' + Date.now(),
+                text: val,
+                checked: false
+            };
+
+            appState.checklist.group3.push(newItem);
+            saveState();
+            renderChecklists();
+            
+            input.value = '';
+            showToast('已新增自訂備忘項目', 'success');
+        }
+
+        function deleteCustomItem(index) {
+            appState.checklist.group3.splice(index, 1);
+            saveState();
+            renderChecklists();
+            showToast('已刪除該自訂項目', 'info');
+        }
+
+        function resetChecklist() {
+            appState.checklist = JSON.parse(JSON.stringify(defaultChecklist));
+            saveState();
+            renderChecklists();
+            showToast('準備清單已重設為預設值！', 'info');
+        }
+
+        function setupCountdown() {
+            const dateInput = document.getElementById('departure-date');
+            
+            dateInput.addEventListener('change', function() {
+                appState.departureDate = this.value;
+                saveState();
+                calculateCountdown();
+            });
+
+            calculateCountdown();
+        }
+
+        // Helper to format Date into human-readable traditional Chinese
+        function formatDateCH(dateObj) {
+            const mm = dateObj.getMonth() + 1;
+            const dd = dateObj.getDate();
+            const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const dayOfWeek = days[dateObj.getDay()];
+            return `${mm} 月 ${dd} 日 (${dayOfWeek})`;
+        }
+
+        function calculateCountdown() {
+            const display = document.getElementById('countdown-display');
+            const goldWindowContainer = document.getElementById('gold-window-container');
+            const goldWindowText = document.getElementById('gold-window-text');
+
+            if (!appState.departureDate) {
+                display.innerText = '等待日期';
+                goldWindowContainer.classList.add('hidden');
+                return;
+            }
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            const depDate = new Date(appState.departureDate);
+            depDate.setHours(0,0,0,0);
+
+            const timeDiff = depDate.getTime() - today.getTime();
+            const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+            // Gold e-Arrival window is strictly 3 days (72 hours) before flight departure date
+            const goldStartDate = new Date(depDate);
+            goldStartDate.setDate(depDate.getDate() - 3);
+
+            if (isNaN(dayDiff)) {
+                display.innerText = '格式錯誤';
+                goldWindowContainer.classList.add('hidden');
+            } else {
+                // Render countdown display
+                if (dayDiff > 0) {
+                    display.innerHTML = `出發倒數 ${dayDiff} 天`;
+                    if (dayDiff <= 3) {
+                        showToast('您的航班就在這三天！請務必儘速填寫完成 e-Arrival Card 入境申報哦！', 'success');
+                    }
+                } else if (dayDiff === 0) {
+                    display.innerHTML = `🎉 今日啟航`;
+                } else {
+                    display.innerHTML = `已出發`;
+                }
+
+                // Render golden fill-out window
+                goldWindowContainer.classList.remove('hidden');
+                goldWindowText.innerHTML = `
+                    您最理想的線上填寫時間為：<strong class="text-brand-coral font-bold">${formatDateCH(goldStartDate)}</strong> 起至起飛出發前。<br/>
+                    這段期間填寫，資訊最新且最不容易遺漏，填報完成後請務必下載 PDF 檔或直接拍照截圖條碼哦！
+                `;
+            }
+        }
+
+        function toggleQCode(status) {
+            const normalBtn = document.getElementById('btn-qcode-normal');
+            const symptomBtn = document.getElementById('btn-qcode-symptom');
+            const resultBox = document.getElementById('qcode-result-box');
+            const resultIcon = document.getElementById('qcode-result-icon');
+            const resultTitle = document.getElementById('qcode-result-title');
+            const resultDesc = document.getElementById('qcode-result-desc');
+
+            if (status === 'normal') {
+                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
+                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
+                
+                resultBox.className = "p-4 border transition-all duration-500 bg-brand-tealLight border-brand-teal/20 rounded-2xl";
+                resultIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+                resultTitle.innerText = "免填 Q-Code 健康聲明";
+                resultDesc.innerHTML = "身體狀況良好的情況下，入境韓國<b>不需</b>申報 Q-Code 或填寫黃色紙本健康聲明。直接通關入境即可！";
+            } else {
+                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
+                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
+                
+                resultBox.className = "p-4 border transition-all duration-500 bg-brand-coralLight border-brand-coral/20 rounded-2xl";
+                resultIcon.innerHTML = `<i class="fa-solid fa-circle-exclamation text-brand-coral"></i>`;
+                resultTitle.innerText = "建議事前登錄 Q-Code";
+                resultDesc.innerHTML = "入境時若身體有發燒不適、疑似疑似咳嗽，或曾造訪法定傳染風險地區，建議在起飛前登錄 <b>Q-Code 官方網站</b> 填妥資訊，下機後出示 QR 碼掃描即能快速接受檢疫，順利入境！";
+            }
+        }
+
+        function setupDraftListeners() {
+            const fields = ['draft-hotel', 'draft-address', 'draft-phone'];
+            fields.forEach(fieldId => {
+                document.getElementById(fieldId).addEventListener('input', function() {
+                    const stateKey = fieldId.replace('draft-', 'draft').replace('hotel', 'Hotel').replace('address', 'Address').replace('phone', 'Phone');
+                    appState[stateKey] = this.value;
+                    saveState();
+                });
+            });
+        }
+
+        function copyDraft(fieldId) {
+            const input = document.getElementById(fieldId);
+            if (!input.value.trim()) {
+                showToast('請先在此欄位輸入文字以便複製備用哦。', 'warning');
+                return;
+            }
+            
+            input.select();
+            input.setSelectionRange(0, 99999);
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast('已複製資訊至剪貼簿！可直接貼在官方申報欄位。', 'success');
+                } else {
+                    showToast('複製失敗，請嘗試手動反白複製文字。', 'warning');
+                }
+            } catch (err) {
+                showToast('因瀏覽器限制，請手動圈選複製文字。', 'warning');
+            }
+        }
+
+        let toastTimeout;
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('notification-toast');
+            const icon = document.getElementById('toast-icon');
+            const msg = document.getElementById('toast-message');
+
+            clearTimeout(toastTimeout);
+
+            if (type === 'success') {
+                icon.innerHTML = `<i class="fa-regular fa-circle-check text-brand-teal"></i>`;
+            } else if (type === 'warning') {
+                icon.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-brand-coral"></i>`;
+            } else {
+                icon.innerHTML = `<i class="fa-solid fa-circle-info text-brand-teal"></i>`;
+            }
+
+            msg.innerText = message;
+            
+            toast.classList.remove('hidden');
+
+            toastTimeout = setTimeout(() => {
+                dismissToast();
+            }, 3500);
+        }
+
+        function dismissToast() {
+            const toast = document.getElementById('notification-toast');
+            toast.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
