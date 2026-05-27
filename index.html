@@ -47,14 +47,12 @@
                 }
             }
         }
-   </script>
+     </script>
     <style>
-        /* Apply rounded fonts globally */
         body {
             font-family: 'Fredoka', 'M PLUS Rounded 1c', 'Noto Sans TC', sans-serif;
             background-color: #fbf9f4;
         }
-        /* Custom delicate rounded scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -75,12 +73,11 @@
     <!-- Premium top colorful bar -->
     <div class="h-[6px] w-full bg-gradient-to-r from-brand-teal via-brand-coral to-brand-gold"></div>
 
-    <!-- Main Fluid Container -->
+    <!-- Main Container -->
     <main class="flex-grow container mx-auto px-6 py-8 max-w-5xl">
         
-        <!-- Modern Rounded Editorial Header -->
-        <header class="text-center mb-6 relative py-10 px-6 bg-white rounded-[32px] border border-brand-sand shadow-soft-md overflow-hidden">
-            <!-- Background floating shape for playfulness -->
+        <!-- Header -->
+        <header class="text-center mb-8 relative py-10 px-6 bg-white rounded-[32px] border border-brand-sand shadow-soft-md overflow-hidden">
             <div class="absolute -right-12 -bottom-12 text-[150px] opacity-[0.04] rotate-[15deg] pointer-events-none select-none">✈️</div>
             
             <span class="inline-flex items-center gap-1.5 bg-brand-teal/10 text-brand-tealDark text-xs font-semibold px-4 py-2 rounded-full mb-6 border border-brand-teal/20">
@@ -91,22 +88,12 @@
                 SEOUL GO! <span class="text-brand-coral font-bold italic">2026</span>
             </h1>
             
-            <!-- Paragraph layout optimized with responsive line breaks for both entry and exit -->
-            <p class="text-brand-slate/80 text-sm md:text-base font-semibold max-w-3xl mx-auto leading-relaxed text-center mb-8">
-                首爾雙向秒速通關指南！2026 韓國免簽與 K-ETA 豁免最新規定全面收錄。<br class="hidden md:inline"/>
-                從「入境前 e-Arrival 電子申報」到「回程出境 Smart Pass 人臉辨識」，<br class="hidden md:inline"/>
+            <!-- Paragraph layout with exact requested formatting -->
+            <p class="text-brand-slate/80 text-sm md:text-base font-semibold max-w-2xl mx-auto leading-relaxed text-center">
+                首爾雙向秒速通關指南！2026 韓國免簽與 K-ETA 豁免最新規定全面收錄。<br/>
+                從「入境前 e-Arrival 電子申報」到「回程出境 Smart Pass 人臉辨識」，<br/>
                 只需 <span class="text-brand-coral font-bold">3 分鐘</span> 帶您輕鬆掌握去回程的所有通關秘訣！
             </p>
-
-            <!-- PREMUM TABS CONTROLLER (Interactive Tab Switcher) -->
-            <div class="inline-flex p-1.5 bg-brand-cream border border-brand-sand rounded-2xl shadow-inner max-w-md w-full mx-auto">
-                <button id="tab-btn-entry" onclick="switchTab('entry')" class="flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 bg-brand-teal text-white shadow-sm">
-                    <i class="fa-solid fa-plane-arrival"></i> 入境與行前準備
-                </button>
-                <button id="tab-btn-smartpass" onclick="switchTab('smartpass')" class="flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 text-brand-slate/60 hover:text-brand-slate">
-                    <i class="fa-solid fa-face-smile"></i> 出境 Smart Pass 指南
-                </button>
-            </div>
         </header>
 
         <!-- Dynamic Minimal Toast System -->
@@ -118,14 +105,26 @@
             </button>
         </div>
 
-        <!-- ==================== TAB 1: ENTRY & CHECKLIST ==================== -->
-        <div id="tab-content-entry" class="transition-all duration-500 block">
+        <!-- Premium Elegant Tab Switcher -->
+        <div class="flex justify-center mb-8">
+            <div class="inline-flex p-1.5 bg-white border border-brand-sand rounded-[24px] shadow-soft-sm">
+                <button id="tab-btn-entry" onclick="switchTab('entry')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm">
+                    ✈️ 入境與行前準備
+                </button>
+                <button id="tab-btn-exit" onclick="switchTab('exit')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate">
+                    ✨ 出境 Smart Pass 指南
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= TAB 1: ENTRY CONTENT ================= -->
+        <div id="tab-content-entry" class="space-y-8">
             
-            <!-- Expanded Wide Interactive Countdown & Gold Window Widget -->
-            <div class="max-w-2xl mx-auto bg-brand-cream border border-brand-sand/70 p-5 rounded-2xl shadow-inner flex flex-col gap-4 mb-10 text-center">
+            <!-- Date countdown & Gold Window -->
+            <div class="max-w-2xl mx-auto bg-white border border-brand-sand p-6 rounded-[24px] shadow-soft-md flex flex-col gap-4">
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
-                        <span class="text-brand-coral text-xl bg-white p-2.5 rounded-full shadow-sm"><i class="fa-regular fa-calendar-days"></i></span>
+                        <span class="text-brand-coral text-xl bg-brand-cream p-2.5 rounded-full border border-brand-sand shadow-sm"><i class="fa-regular fa-calendar-days"></i></span>
                         <div class="text-left">
                             <h4 class="font-bold text-sm text-brand-slate">我的出發日期 Departure</h4>
                             <p class="text-xs text-brand-slate/60 whitespace-nowrap">設定日期以計算最佳填報日</p>
@@ -133,16 +132,16 @@
                     </div>
                     
                     <div class="flex items-center gap-2.5 w-full sm:w-auto">
-                        <input type="date" id="departure-date" class="bg-white text-brand-slate text-xs font-bold px-4 py-2.5 rounded-xl border border-brand-sand focus:outline-none focus:ring-2 focus:ring-brand-teal/50 w-full sm:w-auto text-center cursor-pointer shadow-sm" />
+                        <input type="date" id="departure-date" class="bg-brand-cream text-brand-slate text-xs font-bold px-4 py-2.5 rounded-xl border border-brand-sand focus:outline-none focus:ring-2 focus:ring-brand-teal/50 w-full sm:w-auto text-center cursor-pointer shadow-sm" />
                         <div id="countdown-display" class="font-bold text-xs bg-brand-teal text-white px-4 py-2.5 rounded-xl text-center min-w-[110px] uppercase tracking-wider">
                             請選擇日期
                         </div>
                     </div>
                 </div>
 
-                <!-- Gold fill window projection block (hidden until date is selected) -->
+                <!-- Gold Window -->
                 <div id="gold-window-container" class="hidden transition-all duration-500 ease-out border-t border-brand-sand/60 pt-3 text-left">
-                    <div class="bg-white border border-brand-teal/20 px-4 py-3 rounded-xl flex items-start gap-3">
+                    <div class="bg-brand-tealLight/50 border border-brand-teal/20 px-4 py-3 rounded-xl flex items-start gap-3">
                         <span class="text-brand-teal text-sm mt-0.5"><i class="fa-solid fa-clock-rotate-left animate-pulse"></i></span>
                         <div>
                             <h5 class="text-xs font-bold text-brand-tealDark">💡 最佳黃金填報時間 (起飛前 72 小時)</h5>
@@ -152,10 +151,10 @@
                 </div>
             </div>
 
-            <!-- Core New Rules Cards (Three pillars) -->
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <!-- Card 1: Visa -->
-                <div class="bg-brand-tealLight/50 p-6 rounded-3xl border border-brand-teal/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+            <!-- Core Pillar Cards -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-tealLight/50 p-6 rounded-3xl border border-brand-teal/20 shadow-soft-sm flex flex-col justify-between">
                     <div>
                         <div class="w-10 h-10 bg-brand-teal text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">🛂</div>
                         <span class="text-[10px] uppercase tracking-wider text-brand-tealDark font-bold block mb-1">停留天數 Limit</span>
@@ -169,8 +168,8 @@
                     </div>
                 </div>
 
-                <!-- Card 2: K-ETA -->
-                <div class="bg-brand-coralLight/50 p-6 rounded-3xl border border-brand-coral/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                <!-- Card 2 -->
+                <div class="bg-brand-coralLight/50 p-6 rounded-3xl border border-brand-coral/20 shadow-soft-sm flex flex-col justify-between">
                     <div>
                         <div class="w-10 h-10 bg-brand-coral text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">🙅‍♂️</div>
                         <span class="text-[10px] uppercase tracking-wider text-brand-coral font-bold block mb-1">特別免除 Exemption</span>
@@ -184,8 +183,8 @@
                     </div>
                 </div>
 
-                <!-- Card 3: e-Arrival Card -->
-                <div class="bg-amber-50 p-6 rounded-3xl border border-brand-gold/20 shadow-soft-sm hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+                <!-- Card 3 -->
+                <div class="bg-amber-50 p-6 rounded-3xl border border-brand-gold/20 shadow-soft-sm flex flex-col justify-between">
                     <div>
                         <div class="w-10 h-10 bg-brand-gold text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm">📱</div>
                         <span class="text-[10px] uppercase tracking-wider text-brand-gold font-bold block mb-1">無紙通關 Electronic</span>
@@ -200,67 +199,57 @@
                 </div>
             </section>
 
-            <!-- Interactive Checklists & Diagnostic Area -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
+            <!-- Checklist & Diagnostic Split Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Left Side: Interactive Checklist Catalog (7 Cols) -->
-                <div class="lg:col-span-7">
-                    <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
-                        <div class="flex items-start justify-between mb-6 flex-wrap gap-4">
-                            <div>
-                                <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🧳 行前Check-list</h2>
-                                <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">出發前依序勾選即可安心出遊</p>
-                            </div>
-                            <button onclick="resetChecklist()" class="text-xs tracking-wider uppercase font-extrabold text-brand-slate/40 hover:text-brand-coral transition-colors flex items-center gap-1.5 bg-brand-cream px-3 py-2 rounded-full border border-brand-sand/50">
-                                <i class="fa-solid fa-rotate-right text-[10px]"></i> 重置進度
-                            </button>
+                <!-- Left: Checklist -->
+                <div class="lg:col-span-7 bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                    <div class="flex items-start justify-between mb-6 flex-wrap gap-4">
+                        <div>
+                            <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🧳 行前Check-list</h2>
+                            <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">出發前依序勾選即可安心出遊</p>
+                        </div>
+                        <button onclick="resetChecklist()" class="text-xs tracking-wider uppercase font-extrabold text-brand-slate/40 hover:text-brand-coral transition-colors flex items-center gap-1.5 bg-brand-cream px-3 py-2 rounded-full border border-brand-sand/50">
+                            <i class="fa-solid fa-rotate-right text-[10px]"></i> 重置
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Group 1 -->
+                        <div>
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-tealDark bg-brand-teal/10 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                01 / e-Arrival Card網上填報必備
+                            </h4>
+                            <div class="space-y-2.5" id="checklist-group-1"></div>
                         </div>
 
-                        <!-- Minimalist Rounded Checklist Items -->
-                        <div class="space-y-6">
-                            
-                            <!-- Group 1 -->
-                            <div>
-                                <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-tealDark bg-brand-teal/10 px-3.5 py-1.5 rounded-full inline-block mb-3">
-                                    01 / e-Arrival Card網上填報必備
-                                </h4>
-                                <div class="space-y-2.5" id="checklist-group-1">
-                                    <!-- Dynamic checklists render here -->
-                                </div>
+                        <!-- Group 2 -->
+                        <div>
+                            <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-gold bg-amber-100 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                                02 / 自訂個人行李或準備清單
+                            </h4>
+                            <div class="space-y-2.5 mb-4" id="checklist-group-2"></div>
+
+                            <!-- New Custom Item Input -->
+                            <div class="flex gap-2 mt-4 bg-brand-cream p-1.5 rounded-2xl border border-brand-sand">
+                                <input type="text" id="new-item-input" placeholder="加點隨身好物...如轉接頭、隨身小包" class="flex-1 bg-transparent text-xs px-3 py-2.5 rounded-xl border-none focus:outline-none placeholder:text-brand-slate/30" />
+                                <button onclick="addNewChecklistItem()" class="bg-brand-teal hover:bg-brand-tealDark text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-sm active:scale-95">
+                                    新增
+                                </button>
                             </div>
-
-                            <!-- Group 3 (Renamed to 02 as Group 2 was deleted) -->
-                            <div>
-                                <h4 class="text-xs font-extrabold uppercase tracking-wider text-brand-gold bg-amber-100 px-3.5 py-1.5 rounded-full inline-block mb-3">
-                                    02 / 自訂個人行李或準備清單
-                                </h4>
-                                <div class="space-y-2.5" id="checklist-group-3">
-                                    <!-- Dynamic custom items render here -->
-                                </div>
-
-                                <!-- Custom item insert input -->
-                                <div class="flex gap-2 mt-4 bg-brand-cream p-1.5 rounded-2xl border border-brand-sand">
-                                    <input type="text" id="new-item-input" placeholder="加點隨身好物...如轉接頭、隨身小包" class="flex-1 bg-transparent text-xs px-3 py-2.5 rounded-xl border-none focus:outline-none placeholder:text-brand-slate/30" />
-                                    <button onclick="addNewChecklistItem()" class="bg-brand-teal hover:bg-brand-tealDark text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-sm active:scale-95">
-                                        新增
-                                    </button>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Side: Health Diagnostic & Draft Vault (5 Cols) -->
+                <!-- Right: Q-Code Diagnostic & Draft Notes -->
                 <div class="lg:col-span-5 flex flex-col gap-6">
                     
-                    <!-- Q-Code Luxury Assessment -->
+                    <!-- Q-Code Diagnostic -->
                     <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                         <div class="mb-4">
                             <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🏥 我要填 Q-Code 嗎？</h2>
                             <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">健康狀態事前登入評估</p>
                         </div>
-
                         <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
                             2026年韓國已常態化免除「無症狀者」的健康申報。請點選您目前的身體健康狀態：
                         </p>
@@ -274,7 +263,6 @@
                             </button>
                         </div>
 
-                        <!-- Result Panel with round soft corners -->
                         <div id="qcode-result-box" class="p-4 border transition-all duration-500 bg-brand-tealLight border-brand-teal/20 rounded-2xl">
                             <div class="flex items-start gap-3">
                                 <span class="text-brand-teal text-base mt-0.5" id="qcode-result-icon"><i class="fa-solid fa-circle-check"></i></span>
@@ -288,23 +276,22 @@
                         </div>
                     </div>
 
-                    <!-- e-Arrival Card Draft Vault with pre-filled values -->
+                    <!-- Draft Copy Area (Predefined details) -->
                     <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                         <div class="mb-4">
-                            <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📝 申報快速複製區</h2>
-                            <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">預設填報資訊暫存庫</p>
+                            <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📝 申報快速複製本</h2>
+                            <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">填報資訊暫存庫</p>
                         </div>
-                        
                         <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
-                            填寫官方 e-Arrival Card 時需頻繁輸入英文，您可以直接點擊右側按鈕快速複製預設飯店資訊！
+                            填寫官方 e-Arrival Card 時需頻繁輸入英文，此處已預設填入推薦的熱門飯店資訊，點選即可快速複製：
                         </p>
 
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">英文飯店名稱 (Hotel Name)</label>
                                 <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
-                                    <input type="text" id="draft-hotel" value="THE PLAZA Seoul" placeholder="如 Four Seasons Hotel Seoul" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none placeholder:text-brand-slate/25" />
-                                    <button onclick="copyDraft('draft-hotel')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <input type="text" id="draft-hotel" value="THE PLAZA Seoul" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 font-bold focus:outline-none text-brand-slate" />
+                                    <button onclick="copyDraft('draft-hotel')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm">
                                         <i class="fa-regular fa-copy"></i>
                                     </button>
                                 </div>
@@ -313,18 +300,18 @@
                             <div>
                                 <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">英文飯店地址 (Hotel Address)</label>
                                 <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
-                                    <textarea id="draft-address" rows="2" placeholder="如 119 Sogong-ro, Jung-gu, Seoul" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none resize-none placeholder:text-brand-slate/25">119 Sogong-ro, Jung-gu, Seoul</textarea>
-                                    <button onclick="copyDraft('draft-address')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <textarea id="draft-address" rows="2" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 font-bold focus:outline-none resize-none text-brand-slate">119 Sogong-ro, Jung-gu, Seoul</textarea>
+                                    <button onclick="copyDraft('draft-address')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm">
                                         <i class="fa-regular fa-copy"></i>
                                     </button>
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">飯店聯絡電話 (Hotel Phone)</label>
+                                <label class="block text-[11px] font-extrabold uppercase tracking-wider text-brand-slate/60 mb-1.5">飯店聯絡電話 (Hotel Telephone)</label>
                                 <div class="relative bg-brand-cream rounded-2xl border border-brand-sand overflow-hidden">
-                                    <input type="text" id="draft-phone" value="+82 2-771-2200" placeholder="如 +82 2-771-2200" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 focus:outline-none placeholder:text-brand-slate/25" />
-                                    <button onclick="copyDraft('draft-phone')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm" title="複製此欄位">
+                                    <input type="text" id="draft-tel" value="+82 2-771-2200" class="w-full bg-transparent text-xs pl-4 pr-12 py-3 font-bold focus:outline-none text-brand-slate" />
+                                    <button onclick="copyDraft('draft-tel')" class="absolute right-2 top-2 bg-white hover:bg-brand-sand text-brand-slate p-1.5 transition-all rounded-xl text-xs shadow-sm">
                                         <i class="fa-regular fa-copy"></i>
                                     </button>
                                 </div>
@@ -333,11 +320,10 @@
                     </div>
 
                 </div>
-
             </div>
 
-            <!-- Official Portals Section -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
+            <!-- Portal Links Section -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                 <div class="mb-6">
                     <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🔗 韓國官方申報通道安全指引</h2>
                     <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">請務必使用政府官方入口網站</p>
@@ -347,12 +333,11 @@
                 <div class="border border-brand-gold/30 bg-amber-50 p-5 text-brand-slate text-xs rounded-2xl mb-6 flex gap-3.5 leading-relaxed">
                     <span class="text-brand-gold text-lg mt-0.5"><i class="fa-solid fa-circle-exclamation"></i></span>
                     <div>
-                        <strong class="font-extrabold uppercase tracking-wider block mb-1">🚨 防網路詐騙安全提醒 / Anti-Scam</strong>
-                        目前網路上有大量假冒官方政府的釣魚申報代辦網頁。除了 K-ETA 的固有手續費（目前美、日、台短期觀光旅客暫免）之外，**線上申報入境卡（e-Arrival Card）是完全免費的服務**，千萬不要付代辦費！認明網址後綴為 <strong class="underline font-extrabold text-brand-tealDark">.go.kr</strong> 的才是正牌韓國政府官網。
+                        <strong class="font-extrabold uppercase tracking-wider block mb-1">🚨 🚨 防網路詐騙安全提醒 / Anti-Scam</strong>
+                        目前網路上有大量假冒官方政府的條碼代辦網頁。**線上申報入境卡（e-Arrival Card）是完全免費的服務**，千萬不要付代辦費！認明網址後綴為 <strong class="underline font-extrabold text-brand-tealDark">.go.kr</strong> 的才是正牌韓國政府官網。
                     </div>
                 </div>
 
-                <!-- URL Table in rounded format -->
                 <div class="overflow-x-auto rounded-2xl border border-brand-sand">
                     <table class="w-full text-left text-xs border-collapse">
                         <thead>
@@ -378,7 +363,7 @@
                             <tr class="hover:bg-amber-50 transition-colors">
                                 <td class="p-4">
                                     <div class="font-extrabold text-brand-slate">Q-Code 檢疫事前健康輸入系統</div>
-                                    <div class="text-[10px] text-brand-slate/50 mt-0.5">有發熱等異常症狀、傳染病風險地區者填報</div>
+                                    <div class="text-[10px] text-brand-slate/50 mt-0.5">僅限有疑似發熱等不適狀況時填報</div>
                                 </td>
                                 <td class="p-4 text-brand-slate/60 font-mono hidden md:table-cell">qcode.kdca.go.kr</td>
                                 <td class="p-4 text-right">
@@ -392,409 +377,329 @@
                 </div>
             </section>
 
-            <!-- ==================== LIVE CURRENCY CONVERTER ==================== -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
-                <div class="mb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                    <div>
-                        <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">💱 2026 匯率換算器</h2>
-                        <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">台幣 TWD ⇄ 韓元 KRW</p>
-                    </div>
-                    <span class="text-[10px] bg-brand-teal/10 text-brand-tealDark font-extrabold px-3 py-1.5 rounded-full border border-brand-teal/20">1 TWD ≈ 47.8 KRW</span>
+            <!-- Currency converter -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🧳 2026 匯率換算器 (即時對應)</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">目前基準：1 TWD ≈ 47.8 KRW</p>
                 </div>
-                
-                <p class="text-xs text-brand-slate/70 font-medium leading-relaxed mb-4">
-                    快速預估出遊購物預算，雙向即時輸入與連動更新：
-                </p>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-brand-cream border border-brand-sand p-3 rounded-2xl">
-                        <label class="block text-[10px] font-bold text-brand-slate/50 uppercase tracking-wider mb-1">新台幣 TWD</label>
-                        <div class="flex items-center gap-1">
-                            <span class="text-xs font-bold text-brand-slate/60">NT$</span>
-                            <input type="number" id="calc-twd" value="1000" class="w-full bg-transparent text-sm font-extrabold text-brand-slate focus:outline-none" />
+                <div class="bg-brand-cream border border-brand-sand p-6 rounded-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-brand-slate/60 mb-2">🇹🇼 新台幣台幣 (TWD)</label>
+                            <div class="relative bg-white rounded-xl border border-brand-sand overflow-hidden">
+                                <input type="number" id="calc-twd" value="1000" oninput="convertCurrency('twd')" class="w-full bg-transparent font-bold text-sm px-4 py-3.5 focus:outline-none" />
+                                <span class="absolute right-4 top-3.5 font-extrabold text-xs text-brand-slate/40">元 TWD</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-brand-cream border border-brand-sand p-3 rounded-2xl">
-                        <label class="block text-[10px] font-bold text-brand-slate/50 uppercase tracking-wider mb-1">韓元 KRW</label>
-                        <div class="flex items-center gap-1">
-                            <span class="text-xs font-bold text-brand-slate/60">₩</span>
-                            <input type="number" id="calc-krw" value="47800" class="w-full bg-transparent text-sm font-extrabold text-brand-slate focus:outline-none" />
+                        <div class="hidden md:flex justify-center text-brand-teal text-xl font-bold">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-brand-slate/60 mb-2">🇰🇷 韓元韓幣 (KRW)</label>
+                            <div class="relative bg-white rounded-xl border border-brand-sand overflow-hidden">
+                                <input type="number" id="calc-krw" value="47800" oninput="convertCurrency('krw')" class="w-full bg-transparent font-bold text-sm px-4 py-3.5 focus:outline-none" />
+                                <span class="absolute right-4 top-3.5 font-extrabold text-xs text-brand-slate/40">₩ KRW</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ==================== TRAVEL TIPS ==================== -->
+            <!-- Travel Tips -->
             <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
-                <div class="mb-4">
+                <div class="mb-6">
                     <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✈️ Travel Tips</h2>
-                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">首爾自由行行前必備實用小知識</p>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">出發前不可不知的小細節</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <!-- Tip 1: Power bank -->
-                    <div class="bg-brand-coralLight/40 border border-brand-coral/20 p-5 rounded-2xl flex flex-col justify-between">
+                    <!-- Power Bank -->
+                    <div class="bg-brand-coralLight/40 border border-brand-coral/10 p-5 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-lg shrink-0">🔋</span>
-                                <h4 class="font-extrabold text-sm text-brand-slate">行動電源標示及包裝</h4>
-                            </div>
-                            <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
+                            <h4 class="font-extrabold text-xs text-brand-slate flex items-center gap-2 mb-3">
+                                <span class="text-brand-coral">🔋</span> 行動電源標示及包裝
+                            </h4>
+                            <p class="text-[11px] text-brand-slate/75 leading-relaxed font-medium">
                                 韓國最新航空安檢規定要求，行動電源必須隨身攜帶，不可托運，並使用透明夾鏈袋單獨包裝，行動電源本體需清楚標示「Wh」容量資訊，若僅標示 mAh可能拒絕攜帶，或直接丟棄。
                             </p>
                         </div>
-                        <span class="text-[10px] text-brand-coral font-bold uppercase tracking-wider mt-4">標示磨損 or 無Wh資訊可能被拒</span>
+                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-coral font-bold">隨身攜帶・標示清晰</span>
                     </div>
 
-                    <!-- Tip 2: Outlet -->
+                    <!-- Adapter -->
+                    <div class="bg-brand-tealLight/40 border border-brand-teal/10 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-extrabold text-xs text-brand-slate flex items-center gap-2 mb-3">
+                                <span class="text-brand-teal">🔌</span> 韓國使用 220V 圓孔插座
+                            </h4>
+                            <p class="text-[11px] text-brand-slate/75 leading-relaxed font-medium">
+                                韓國採用 220 伏特、雙腳細圓孔插座（Type C / F 型，插腳直徑為 4.8mm）。建議自備轉接頭，以免歐洲規細孔款（4.0mm）插上後鬆動接觸不良。
+                            </p>
+                        </div>
+                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-teal font-bold">220V・4.8mm 粗腳</span>
+                    </div>
+
+                    <!-- eSIM -->
+                    <div class="bg-amber-50 border border-brand-gold/10 p-5 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-extrabold text-xs text-brand-slate flex items-center gap-2 mb-3">
+                                <span class="text-brand-gold">📶</span> 建議提前完成 eSIM 安裝或漫遊設定
+                            </h4>
+                            <p class="text-[11px] text-brand-slate/75 leading-relaxed font-medium">
+                                飛機在韓國降落、滑行時即可網路暢通，第一時間出示電子入境 QR 碼通關。請記得在台灣起飛前就掃描好 eSIM 的 QR-Code。
+                            </p>
+                        </div>
+                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-gold font-bold">起飛前預先裝好</span>
+                    </div>
+
+                    <!-- Weather -->
                     <div class="bg-brand-cream border border-brand-sand p-5 rounded-2xl flex flex-col justify-between">
                         <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-lg shrink-0">🔌</span>
-                                <h4 class="font-extrabold text-sm text-brand-slate">韓國使用 220V 圓孔插座</h4>
-                            </div>
-                            <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
-                                韓國電壓為 **220V**，插座為**雙圓孔（Type C/F）**。建議購買專用轉接頭（圓腳直徑為 4.8mm），不要買到直徑較細的 4.0mm 歐規轉接頭，以免尺寸不合導致插座接觸不良或鬆脫。
+                            <h4 class="font-extrabold text-xs text-brand-slate flex items-center gap-2 mb-3">
+                                <span class="text-brand-slate/70">☀️</span> 首爾 6 月氣候與穿搭
+                            </h4>
+                            <p class="text-[11px] text-brand-slate/75 leading-relaxed font-medium">
+                                首爾的 6 月正值初夏（均溫 18°C ~ 27°C）。白天日照偏熱、早晚稍涼。穿衣推薦洋蔥式穿法，短袖搭配一件防曬防冷氣的薄外衫最合適！
                             </p>
                         </div>
-                        <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider mt-4">請認明韓德規格 4.8mm 粗圓頭</span>
+                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-slate/60 font-bold">洋蔥式穿搭與避暑防涼</span>
                     </div>
-
-                    <!-- Tip 3: eSIM -->
-                    <div class="bg-brand-tealLight/40 border border-brand-teal/20 p-5 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-lg shrink-0">📶</span>
-                                <h4 class="font-extrabold text-sm text-brand-slate">提前完成 eSIM 或漫遊設定</h4>
-                            </div>
-                            <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
-                                為了確保抵達韓國機場時，能第一時間上網出示線上填報的 e-Arrival Card 入境條碼，**強烈建議在台灣起飛登機前，先掃描 eSIM QR Code 并在手機中安裝好**。下飛機後切換數據開關即能秒速連網！
-                            </p>
-                        </div>
-                        <span class="text-[10px] text-brand-tealDark font-bold uppercase tracking-wider mt-4">抵達韓國下機秒上網</span>
-                    </div>
-
-                    <!-- Tip 4: Weather and Outfits -->
-                    <div class="bg-amber-50 border border-brand-gold/20 p-5 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-lg shrink-0">☀️</span>
-                                <h4 class="font-extrabold text-sm text-brand-slate">首爾 6 月氣候與穿搭</h4>
-                            </div>
-                            <p class="text-[11px] text-brand-slate/70 leading-relaxed font-medium">
-                                首爾 6 月正值初夏（約 18°C ~ 27°C），白天日照強烈、偏熱，適合穿著**透氣短袖與棉麻衣物**。但早晚仍有涼意且**室內冷氣極強**，強烈建議隨身攜帶一件**薄外套**。
-                            </p>
-                        </div>
-                        <span class="text-[10px] text-brand-gold font-bold uppercase tracking-wider mt-4">洋蔥式穿搭與避暑防涼</span>
-                    </div>
-
                 </div>
             </section>
 
         </div>
 
-        <!-- ==================== TAB 2: SMART PASS GUIDE ==================== -->
-        <div id="tab-content-smartpass" class="transition-all duration-500 hidden">
+        <!-- ================= TAB 2: EXIT (SMART PASS) CONTENT ================= -->
+        <div id="tab-content-exit" class="hidden space-y-8">
             
-            <!-- What is Smart Pass Banner -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8 relative overflow-hidden">
-                <div class="absolute -right-6 -top-6 text-7xl opacity-[0.05] pointer-events-none select-none">✨</div>
-                <div class="max-w-3xl">
-                    <span class="bg-brand-coral/10 text-brand-coral text-xs font-bold px-3 py-1.5 rounded-full border border-brand-coral/20">
-                        ⚡ 仁川國際機場 (ICN) 出境專用
-                    </span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-slate mt-4 mb-2">什麼是 Smart Pass 人臉辨識快速通關？</h2>
-                    <p class="text-xs md:text-sm text-brand-slate/70 leading-relaxed font-semibold">
-                        Smart Pass 是首爾仁川機場所推行的「人臉辨識通關系統」。事先將護照、人臉以及登機證綁定在專屬 App 中，出境時直接走 Smart Pass 專用通道感應人臉，就能**不拿出護照、登機證直奔海關安檢管制區**！在出境安檢大排長龍時，能為您省下 20 ~ 30 分鐘的珍貴時間。
-                    </p>
+            <!-- Smart Pass 5-Step Card Catalog (Interactive explorer) -->
+            <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✨ Smart Pass 快速通關註冊指南</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">人臉識別・5 步驟隨即開通</p>
                 </div>
-            </section>
 
-            <!-- Steps Section (Refactored to be wider and centered) -->
-            <div class="max-w-3xl mx-auto mb-8">
-                <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
-                    <div class="mb-6 text-center">
-                        <h2 class="text-2xl font-extrabold text-brand-slate">📱 Smart Pass 註冊 5 大步驟</h2>
-                        <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">點擊下方步驟查看圖解教學與註冊眉角</p>
-                    </div>
+                <!-- Navigation steps pills -->
+                <div class="grid grid-cols-5 gap-2 mb-6 bg-brand-cream p-1.5 rounded-2xl border border-brand-sand">
+                    <button onclick="showStep(1)" id="sp-btn-1" class="py-3 font-extrabold text-xs text-center rounded-xl bg-brand-teal text-white shadow-sm transition-all duration-300">步驟 1</button>
+                    <button onclick="showStep(2)" id="sp-btn-2" class="py-3 font-extrabold text-xs text-center rounded-xl text-brand-slate/50 hover:text-brand-slate transition-all duration-300">步驟 2</button>
+                    <button onclick="showStep(3)" id="sp-btn-3" class="py-3 font-extrabold text-xs text-center rounded-xl text-brand-slate/50 hover:text-brand-slate transition-all duration-300">步驟 3</button>
+                    <button onclick="showStep(4)" id="sp-btn-4" class="py-3 font-extrabold text-xs text-center rounded-xl text-brand-slate/50 hover:text-brand-slate transition-all duration-300">步驟 4</button>
+                    <button onclick="showStep(5)" id="sp-btn-5" class="py-3 font-extrabold text-xs text-center rounded-xl text-brand-slate/50 hover:text-brand-slate transition-all duration-300">步驟 5</button>
+                </div>
 
-                    <!-- Step Toggles (Horizontal layout on desktop, grid on mobile) -->
-                    <div class="grid grid-cols-5 gap-1.5 p-1 bg-brand-cream border border-brand-sand rounded-2xl mb-6">
-                        <button onclick="selectSpStep(1)" id="sp-btn-1" class="py-2 px-1 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm">
-                            Step 1
-                        </button>
-                        <button onclick="selectSpStep(2)" id="sp-btn-2" class="py-2 px-1 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl">
-                            Step 2
-                        </button>
-                        <button onclick="selectSpStep(3)" id="sp-btn-3" class="py-2 px-1 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl">
-                            Step 3
-                        </button>
-                        <button onclick="selectSpStep(4)" id="sp-btn-4" class="py-2 px-1 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl">
-                            Step 4
-                        </button>
-                        <button onclick="selectSpStep(5)" id="sp-btn-5" class="py-2 px-1 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl">
-                            Step 5
-                        </button>
-                    </div>
-
-                    <!-- Step Content Card with Smooth Transitions -->
-                    <div id="sp-step-card" class="bg-brand-tealLight/30 border border-brand-teal/10 rounded-2xl p-5 min-h-[220px] flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <span id="sp-step-icon" class="text-2xl bg-white p-2 rounded-xl shadow-sm">📥</span>
-                                <h3 id="sp-step-title" class="text-base font-extrabold text-brand-tealDark">第一步：下載 ICN Smartpass 官方 APP</h3>
-                            </div>
-                            <p id="sp-step-desc" class="text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                                在 App Store 或 Google Play 搜尋「ICN Smartpass」或「Smart Pass」並下載官方 APP。請注意，App 支援繁體中文，下載後可在設定中將語言更改為中文，讓流程操作無障礙！
-                            </p>
+                <!-- Step Content Card -->
+                <div id="sp-step-card" class="bg-brand-tealLight/30 border border-brand-teal/10 rounded-2xl p-5 min-h-[220px] flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span id="sp-step-icon" class="text-2xl bg-white p-2 rounded-xl shadow-sm">📥</span>
+                            <h3 id="sp-step-title" class="text-base font-extrabold text-brand-tealDark">第一步：下載 ICN Smart Pass App</h3>
                         </div>
+                        <p id="sp-step-desc" class="text-xs text-brand-slate/80 leading-relaxed font-semibold">
+                            於 App Store 或 Google Play 搜尋「ICN Smartpass」或「Smart Pass」並下載官方 APP。請注意，App 支援繁體中文，下載後可在設定中將語言更改為中文，讓流程操作無障礙！
+                        </p>
                         
-                        <div id="sp-step-tip-box" class="mt-4 pt-3 border-t border-brand-teal/10 flex items-start gap-2.5">
-                            <span class="text-brand-coral text-xs mt-0.5"><i class="fa-solid fa-lightbulb"></i></span>
-                            <p id="sp-step-tip" class="text-[10px] text-brand-slate/60 leading-relaxed font-medium">
-                                <b>防呆秘訣：</b>下載好 App 後，建議允許其相機、NFC 讀取和通知權限，以便後續感應晶片護照。
-                            </p>
+                        <!-- Dynamic Store Buttons (Shown ONLY on Step 1) -->
+                        <div id="sp-store-buttons" class="mt-4 flex flex-wrap gap-2.5">
+                            <a href="https://apps.apple.com/tw/app/icn-smartpass-%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%AD-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8C%A8%EC%8A%A4/id6443837919" target="_blank" class="inline-flex items-center gap-2 bg-brand-slate hover:bg-black text-white px-4 py-2.5 rounded-xl text-[11px] font-bold transition-all shadow-sm">
+                                <i class="fa-brands fa-apple text-sm"></i> App Store 下載
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=kr.airport.android.smartpass&pcampaignid=web_share" target="_blank" class="inline-flex items-center gap-2 bg-brand-slate hover:bg-black text-white px-4 py-2.5 rounded-xl text-[11px] font-bold transition-all shadow-sm">
+                                <i class="fa-brands fa-google-play text-sm"></i> Google Play 下載
+                            </a>
                         </div>
                     </div>
-
-                    <!-- App Download Link Badges -->
-                    <div class="grid grid-cols-2 gap-3 mt-6">
-                        <a href="https://apps.apple.com/app/icn-smartpass/id6446864448" target="_blank" class="bg-brand-slate text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-brand-slate/90 transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fa-brands fa-apple text-sm"></i> iOS App Store 下載
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=kr.co.icn.smartpass" target="_blank" class="bg-brand-cream border border-brand-sand text-brand-slate text-xs font-bold py-3 px-4 rounded-xl hover:bg-brand-sand transition-all flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fa-brands fa-google-play text-sm text-brand-teal"></i> Android Play 商店
-                        </a>
+                    
+                    <div id="sp-step-tip-box" class="mt-4 pt-3 border-t border-brand-teal/10 flex items-start gap-2.5">
+                        <span class="text-brand-coral text-xs mt-0.5"><i class="fa-solid fa-lightbulb"></i></span>
+                        <p id="sp-step-tip" class="text-[10px] text-brand-slate/60 leading-relaxed font-medium">
+                            <b>防呆秘訣：</b>下載好 App 後，建議允許其相機、NFC 讀取和通知權限，以便後續感應晶片護照。
+                        </p>
                     </div>
                 </div>
+
             </div>
 
-            <!-- Actual Onsite Field Guide (Updated to specify ORANGE color exclusively) -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
-                <div class="mb-4">
-                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🚪 仁川機場現場如何使用？</h2>
-                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">Smart Pass 實際通關流程</p>
+            <!-- Onsite Field Guide -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🧡 機場現場實際使用</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">如何順利辨識通關</p>
                 </div>
 
-                <div class="bg-brand-coralLight/30 border border-brand-coral/20 p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="space-y-3 max-w-xl">
-                        <div class="flex items-center gap-2">
-                            <span class="text-brand-coral text-base"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-brand-coralLight/40 border border-brand-coral/15 p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-brand-coral text-2xl">🧡</span>
                             <h4 class="font-extrabold text-sm text-brand-slate">尋找 Smart Pass 專用通道</h4>
                         </div>
-                        <p class="text-xs text-brand-slate/70 leading-relaxed font-semibold">
-                            當您在首爾仁川國際機場 (ICN) 出境，準備進入海關安檢大廳時，請尋找通道上方與地板上掛有醒目**橘色** <strong class="text-brand-coral">「FACE ID ONLY」</strong> 或 <strong class="text-brand-coral font-bold">「Smart Pass」</strong> 看板的專屬感應通道（其餘一般大排長龍的均為一般通道）。
-                        </p>
-                        <p class="text-xs text-brand-slate/70 leading-relaxed font-semibold">
-                            走到閘門前，雙腳踩在標示腳印位置，**不需拿出護照與登機證**，只要直視鏡頭進行 1 秒鐘的「臉部人臉辨識」，辨識成功後，閘門將會為您主動秒速開啟通關！
+                        <p class="text-xs text-brand-slate/75 leading-relaxed font-medium mb-3">
+                            在仁川機場出境大廳（往管制區安全檢查處）時，請尋找上方掛有醒目<b>橘色標示「FACE ID ONLY」</b>或 <b>Smart Pass</b> 看板的專屬入口。
                         </p>
                     </div>
-                    <div class="bg-white border border-brand-sand p-4 rounded-xl text-center w-full md:w-auto shrink-0 shadow-sm">
-                        <span class="text-4xl block mb-2">🧡</span>
-                        <div class="font-bold text-xs text-brand-slate">辨識標示</div>
-                        <div class="text-[10px] text-brand-slate/40 mt-1">醒目的橘色標示與標籤</div>
+
+                    <div class="bg-brand-tealLight/40 border border-brand-teal/15 p-6 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-brand-teal text-2xl">📷</span>
+                            <h4 class="font-extrabold text-sm text-brand-slate">人臉識別秒速通過</h4>
+                        </div>
+                        <p class="text-xs text-brand-slate/75 leading-relaxed font-medium mb-3">
+                            在專屬通道的閘門前，您不需拿出護照與登機證。只需正對相機鏡頭，經過人臉識別比對成功後，即可秒速過關，節省大量排隊時間！
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <!-- 仁川機場出境流程簡述 -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
+            <!-- Incheon Airport Departure step visual indicator -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                 <div class="mb-6">
-                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✈️ 仁川機場「出境流程」簡述</h2>
-                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">從大廳出境通關一覽表</p>
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✈️ 仁川機場出境流程簡述</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">按步就班・從大廳到登機口</p>
                 </div>
 
-                <!-- Steps in sequential flex chain -->
-                <div class="flex flex-col gap-3">
-                    <div class="grid grid-cols-1 md:grid-cols-7 gap-2.5">
-                        
-                        <div class="bg-brand-cream border border-brand-sand p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px]">
-                            <span class="text-xs font-bold text-brand-slate/50">01</span>
-                            <span class="text-xs font-extrabold text-brand-slate">辦理退稅</span>
-                            <span class="text-[10px] text-brand-slate/40">Tax Refund</span>
-                        </div>
-
-                        <div class="hidden md:flex items-center justify-center text-brand-slate/30">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </div>
-
-                        <div class="bg-brand-cream border border-brand-sand p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px]">
-                            <span class="text-xs font-bold text-brand-slate/50">02</span>
-                            <span class="text-xs font-extrabold text-brand-slate">航空公司報到</span>
-                            <span class="text-[10px] text-brand-slate/40">行李托運及拿登機證</span>
-                        </div>
-
-                        <div class="hidden md:flex items-center justify-center text-brand-slate/30">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </div>
-
-                        <div class="bg-brand-tealLight border border-brand-teal/20 p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px] relative">
-                            <span class="absolute -top-2 right-2 bg-brand-teal text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider">APP</span>
-                            <span class="text-xs font-bold text-brand-tealDark/50">03</span>
-                            <span class="text-xs font-extrabold text-brand-tealDark">登錄登機證</span>
-                            <span class="text-[10px] text-brand-tealDark/70">「Smart Pass」綁定</span>
-                        </div>
-
-                        <div class="hidden md:flex items-center justify-center text-brand-slate/30">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </div>
-
-                        <div class="bg-brand-tealLight border border-brand-teal/20 p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px] relative">
-                            <span class="absolute -top-2 right-2 bg-brand-coral text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wider">免取證</span>
-                            <span class="text-xs font-bold text-brand-tealDark/50">04</span>
-                            <span class="text-xs font-extrabold text-brand-tealDark">刷臉進管制區</span>
-                            <span class="text-[10px] text-brand-tealDark/70">大廳 Smart Pass 通道</span>
-                        </div>
-
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">1. 退稅</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">辦理自助退稅登記</p>
                     </div>
-
-                    <!-- Flow row 2 -->
-                    <div class="grid grid-cols-1 md:grid-cols-7 gap-2.5">
-
-                        <div class="bg-brand-cream border border-brand-sand p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px]">
-                            <span class="text-xs font-bold text-brand-slate/50">05</span>
-                            <span class="text-xs font-extrabold text-brand-slate">隨身行李安檢</span>
-                            <span class="text-[10px] text-brand-slate/40">Security Check</span>
-                        </div>
-
-                        <div class="hidden md:flex items-center justify-center text-brand-slate/30">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </div>
-
-                        <div class="bg-brand-coralLight border border-brand-coral/20 p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px] relative">
-                            <span class="absolute -top-2 right-2 bg-brand-coral text-white text-[8px] px-1.5 py-0.5 rounded-full font-bold">推薦</span>
-                            <span class="text-xs font-bold text-brand-coral/50">06</span>
-                            <span class="text-xs font-extrabold text-brand-coral">通過證照查驗</span>
-                            <span class="text-[10px] text-brand-coral/70">以「SeS自動通關」</span>
-                        </div>
-
-                        <div class="hidden md:flex items-center justify-center text-brand-slate/30">
-                            <i class="fa-solid fa-chevron-right text-lg"></i>
-                        </div>
-
-                        <div class="bg-brand-cream border border-brand-sand p-3.5 rounded-2xl text-center flex flex-col justify-between min-h-[90px] md:col-span-3">
-                            <span class="text-xs font-bold text-brand-slate/50">07</span>
-                            <span class="text-xs font-extrabold text-brand-slate">免稅店、登機口</span>
-                            <span class="text-[10px] text-brand-slate/40">登機時仍隨身出示護照登機證</span>
-                        </div>
-
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">2. 航司報到</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">櫃檯或自助機台托運</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-coral text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">3. 登錄登機證</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">將登機證綁上App</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-coral text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">4. 刷臉進管制</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">走橘色專用 FACE ID</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">5. 安全檢查</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">通過隨身行李安檢</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">6. 證照查驗</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">以 SeS 通關查驗</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">7. 購物與登機</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal">享用免稅店並前往登機</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Smart Pass常見問與答 -->
-            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md mb-8">
+            <!-- FAQs accordion -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                 <div class="mb-6">
                     <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🙋‍♀️ Smart Pass 常見問與答 FAQ</h2>
-                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">整理各類出發前常遇到的疑難解答</p>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">解開您的出境疑惑</p>
                 </div>
 
-                <!-- FAQ Accordion Layout -->
-                <div class="space-y-3.5">
-                    
+                <div class="space-y-3">
                     <!-- Q1 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-1')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q1</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(1)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q1</span>
                                 「Smart Pass」的使用有效期限？有年紀限制嗎？
                             </span>
-                            <span id="faq-1-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-1" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-1-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            每次註冊登錄的護照和臉部資訊，<strong>有效期限為 5 年</strong>。使用者<strong>需年滿 7 歲</strong>，未滿 14 歲需監護人的同意。每人皆需分別以各自的手機 or 平板使用「Smart Pass」。
+                        <div id="faq-answer-1" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            每次註冊登錄的護照和臉部資訊，有效期限為5年。使用者需年滿7歲，未滿14歲需監護人的同意，每人分別以各自的手機 or 平板使用「Smart Pass」。
                         </div>
                     </div>
 
                     <!-- Q2 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-2')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q2</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(2)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q2</span>
                                 再訪韓國、要離境時，要重新申請嗎？
                             </span>
-                            <span id="faq-2-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-2" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-2-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            於「Smart Pass」的有效期限內，<strong>無需再次登錄護照和臉部資訊</strong>，但每次要離開韓國之前，您都<strong>需要重新登錄當次的登機證</strong>。
+                        <div id="faq-answer-2" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            於「Smart Pass」的有效期限內，無需再次登錄護照和臉部資訊，但每次要離開韓國之前，需要重新登錄當次的登機證。
                         </div>
                     </div>
 
                     <!-- Q3 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-3')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q3</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(3)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q3</span>
                                 只有仁川機場可以使用「Smart Pass」嗎？韓國機場能使用嗎？
                             </span>
-                            <span id="faq-3-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-3" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-3-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            <strong>「Smart Pass」為仁川機場專用！</strong> 這是為了因應出境人潮太多，加快出境流程速度的專用 APP。<strong>韓國其他機場都沒有喔！</strong>
+                        <div id="faq-answer-3" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            「Smart Pass」為仁川機場專用！為因應出境人潮太多，加快出境流程速度的專用APP。韓國其他機場都沒有喔！
                         </div>
                     </div>
 
                     <!-- Q4 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-4')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q4</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(4)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q4</span>
                                 登機證登錄「Smart Pass」後，就可以丟掉嗎？
                             </span>
-                            <span id="faq-4-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-4" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-4-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            <strong>不可以！絕對不能丟。</strong> 登機的時候，還是需要實體登機證或電子登機證，Smart Pass 不能完全取代登機證！即使有登錄「Smart Pass」，<strong>護照和登機證還是需要隨身攜帶</strong>！請勿放置於托運行李內。
+                        <div id="faq-answer-4" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            不可以！登機的時候，還是需要實體登機證或電子登機證，Smart Pass不能完全取代登機證！即使有登錄「Smart Pass」，護照和登機證還是需要隨身攜帶！請勿放置托運行李內。
                         </div>
                     </div>
 
                     <!-- Q5 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-5')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q5</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(5)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q5</span>
                                 換護照後，要重新申請Smart Pass嗎？
                             </span>
-                            <span id="faq-5-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-5" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-5-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            <strong>需要。</strong> 把原來的 Smart Pass 帳號在 App 內刪掉，重新做一次註冊流程即可。
+                        <div id="faq-answer-5" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            需要。把原來的Smart Pass刪掉，重新做一次註冊流程即可。
                         </div>
                     </div>
 
                     <!-- Q6 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-6')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q6</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(6)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q6</span>
                                 為什麼我的登機證，無法登錄使用Smart Pass？
                             </span>
-                            <span id="faq-6-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-6" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-6-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            雖然仁川機場的官網有寫，無論搭乘哪個航空公司的航班，完成 Smart Pass 登錄的旅客都可以使用，但實務上，也是有遇到無法完成登錄的情況。<br class="mb-1"/>
-                            <strong>目前主要以參與「Smart Pass」的合作航空公司（韓國籍航空）為主</strong>，實際上能否使用，還以現場情況為準。
+                        <div id="faq-answer-6" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            雖然仁川機場的官網有寫，無論搭乘哪個航空公司的航班，完成Smart Pass登錄的旅客都可以使用，但實務上，也是有遇到無法完成登錄的情況。<br/>
+                            目前以參與「Smart Pass」的航空公司（韓國籍航空）為主，實際上能否使用，還以現場情況為準。
                         </div>
                     </div>
 
                     <!-- Q7 -->
-                    <div class="border border-brand-sand rounded-2xl overflow-hidden transition-all duration-300">
-                        <button onclick="toggleFaq('faq-7')" class="w-full text-left p-4 bg-brand-cream hover:bg-brand-sand/30 flex items-center justify-between gap-4 focus:outline-none">
-                            <span class="text-xs md:text-sm font-extrabold text-brand-slate flex items-start gap-2.5">
-                                <span class="bg-brand-coral/10 text-brand-coral px-2 py-0.5 rounded-lg text-[10px] shrink-0">Q7</span>
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleFaq(7)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q7</span>
                                 入境韓國時，也可以使用「Smart Pass」嗎？
                             </span>
-                            <span id="faq-7-icon" class="text-brand-slate/40 text-xs transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+                            <span id="faq-chevron-7" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
-                        <div id="faq-7-content" class="hidden border-t border-brand-sand/60 p-4 bg-white text-xs text-brand-slate/80 leading-relaxed font-semibold">
-                            <strong>「Smart Pass」為仁川機場「出境」時專用的 APP，入境時無法使用喔！</strong><br class="mb-1"/>
-                            「Smart Pass」人臉辨識和「SeS 自動通關」是兩個完全不同功能的系統：<br class="mb-2"/>
-                            * <strong>SeS 自動通關：</strong> 用於「證照查驗（海關）」過程，入境、出境皆可使用。常往來韓國者，強烈推薦辦理 SeS 自動通關，可大幅加快通關速度。<br class="mb-2"/>
-                            * <strong>Smart Pass：</strong> 用於出境時「機場大廳」進入「隨身行李安全檢查管制區」的閘口，可以使用 Smart Pass 人臉辨識加快通過。
+                        <div id="faq-answer-7" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            「Smart Pass」為仁川機場「出境」時專用的APP，入境時無法使用喔！「Smart Pass」人臉辨識，和「SeS自動通關」，是兩個完全不同功能的APP。
+                            <br/><br/>
+                            <b>入境、出境</b>：可用「SeS自動通關」；「證照查驗」的過程，也可以使用SeS自動通關。常會來往韓國，強烈推薦辦SeS自動通關，可以加快入、出境韓國的速度。
+                            <br/><br/>
+                            <b>出境過程</b>：可用「Smart Pass」人臉辨識。「機場大廳」要往出境「管制區」的過程，可以使用Smart Pass人臉辨識，加快通過速度。
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -802,194 +707,132 @@
 
     </main>
 
+    <!-- Simple copyright credit -->
+    <div class="text-center py-6 text-[10px] font-bold tracking-widest text-brand-slate/30 uppercase bg-transparent border-t border-brand-sand/30">
+        © 2026 Korea Travel Lab.
+    </div>
 
-    <!-- ==================== JS CONTROLLERS ==================== -->
+    <!-- Scripting interactive engines -->
     <script>
+        // Tab switching controller
+        function switchTab(tab) {
+            const entryTabBtn = document.getElementById('tab-btn-entry');
+            const exitTabBtn = document.getElementById('tab-btn-exit');
+            const entryContent = document.getElementById('tab-content-entry');
+            const exitContent = document.getElementById('tab-content-exit');
+
+            if (tab === 'entry') {
+                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm";
+                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate";
+                entryContent.classList.remove('hidden');
+                exitContent.classList.add('hidden');
+            } else {
+                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm";
+                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate";
+                exitContent.classList.remove('hidden');
+                entryContent.classList.add('hidden');
+                showStep(1); // Default step for Smart Pass App Guide
+            }
+        }
+
+        // Q-Code Toggle Controller
+        function toggleQCode(status) {
+            const normalBtn = document.getElementById('btn-qcode-normal');
+            const symptomBtn = document.getElementById('btn-qcode-symptom');
+            const resultBox = document.getElementById('qcode-result-box');
+            const resultIcon = document.getElementById('qcode-result-icon');
+            const resultTitle = document.getElementById('qcode-result-title');
+            const resultDesc = document.getElementById('qcode-result-desc');
+
+            if (status === 'normal') {
+                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
+                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
+                
+                resultBox.className = "p-4 border transition-all duration-500 bg-brand-tealLight border-brand-teal/20 rounded-2xl";
+                resultIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+                resultTitle.innerText = "免填 Q-Code 健康聲明";
+                resultDesc.innerHTML = "身體狀況良好的情況下，入境韓國<b>不需</b>申報 Q-Code 或填寫黃色紙本健康聲明。直接通關入境即可！";
+            } else {
+                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
+                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
+                
+                resultBox.className = "p-4 border transition-all duration-500 bg-brand-coralLight border-brand-coral/20 rounded-2xl";
+                resultIcon.innerHTML = `<i class="fa-solid fa-circle-exclamation text-brand-coral"></i>`;
+                resultTitle.innerText = "建議事前登錄 Q-Code";
+                resultDesc.innerHTML = "入境時若身體有發燒不適、疑似咳嗽，或曾造訪法定傳染風險地區，建議在起飛前登錄 <b>Q-Code 官方網站</b> 填妥資訊，下機後出示 QR 碼檢疫即能快速通關！";
+            }
+        }
+
+        // Checklist Data Store
         const defaultChecklist = {
             group1: [
-                { id: 'item-upload', text: '上傳護照內頁、填寫基本資料', checked: false },
+                { id: 'item-passport', text: '上傳護照內頁、填寫基本資料', checked: false },
                 { id: 'item-email', text: '有效電子郵件（接收簽發編號）', checked: false },
-                { id: 'item-flight-date', text: '入境/離境日期及航班號碼', checked: false },
+                { id: 'item-dates', text: '入境/離境日期及航班號碼', checked: false },
                 { id: 'item-hotel-info', text: '韓國住宿之飯店英文地址與聯絡電話', checked: false },
-                { id: 'item-save-pdf', text: 'e-Arrival Card填寫送出後存PDF檔或截圖備用', checked: false }
+                { id: 'item-pdf-save', text: 'e-Arrival Card填寫送出後存PDF檔或截圖備用', checked: false }
             ],
-            group3: [
-                { id: 'item-esim-roaming', text: '開通門號國際漫遊或購買 e-SIM', checked: false },
-                { id: 'item-custom-1', text: '適量韓元現金與具有海外高回饋的信用卡', checked: false }
+            group2: [
+                { id: 'item-roaming', text: '開通門號國際漫遊或購買 e-SIM', checked: false },
+                { id: 'item-cash', text: '適量韓元現金與具有海外高回饋的信用卡', checked: false }
             ]
         };
 
-        // Smart Pass Step Database
-        const spSteps = {
-            1: {
-                icon: '📥',
-                title: '第一步：下載 ICN Smartpass 官方 APP',
-                desc: '在 App Store 或 Google Play 搜尋「ICN Smartpass」或「Smart Pass」下載官方 APP。請注意，App 本身支援繁體中文！進入 APP 可選擇繁體中文，操作無障礙。',
-                tip: '<b>防呆秘訣：</b>下載好 App 後，建議允許其相機、NFC 讀取和通知權限，以便後續讀取晶片護照。'
-            },
-            2: {
-                icon: '🛂',
-                title: '第二步：註冊會員登入',
-                desc: '進入 APP 使用您的電子郵件（Email）註冊帳號並接收電子驗證碼登入。登入完成後，輸入手機號碼完成簡訊驗證，並開始錄入您的 Passport 護照基礎資訊。',
-                tip: '<b>防呆秘訣：</b>台灣旅客手機號碼國碼請選台灣 (+886)，並去掉第一碼 0（例如手機 0912-345-678，輸入 912345678）即可成功。'
-            },
-            3: {
-                icon: '🔍',
-                title: '第三步：掃描護照並讀取 NFC',
-                desc: 'APP 將要求啟動相機。請將相機鏡頭對準您的晶片護照相片頁，系統辨識後，須打開手機的 NFC 功能，將手機貼在晶片護照封面或個人照片頁，以感應讀取內部電子資訊。',
-                tip: '<b>防呆秘訣：</b>請**務必拔除手機保護殼**！感應時請緊貼護照並維持 5 ~ 10 秒靜止。如感應失敗，可以緩慢上下移動手機調整感應晶片區位置。'
-            },
-            4: {
-                icon: '🤳',
-                title: '第四步：人臉註冊生物識別',
-                desc: '護照登錄成功後，APP 會開啟人臉錄製相機。請將您的整張臉放在相機圓形框架中央，依照 APP 提示眨眼、稍微擺頭，完成人臉錄製。人臉錄像完成後，基礎帳號註冊即刻大功告成！',
-                tip: '<b>防呆秘訣：</b>人臉拍照時，請於光源充足、非逆光環境中進行，且**絕對不可戴口罩、眼鏡、墨鏡或有色瞳片**，避免機場人臉查驗時被機器拒絕。'
-            },
-            5: {
-                icon: '🎫',
-                title: '第五步：綁定當次登機資訊 (出境前)',
-                desc: '完成基本人臉註冊後，每次飛離韓國前 24 小時（拿完登機證後），進入 APP 首頁點選登機證綁定。您可以直接用手機相機「掃描紙本 Boarding Pass 條碼/電子機票 QR Code」，或手動輸入「航空公司與班機號碼」即完成綁定！',
-                tip: '<b>防呆秘訣：</b>基本人臉及護照在 APP 可**一次註冊用 5 年**。但**每次離境搭機時，都必須重新上 APP 綁定該班次登機證**，機器感應門才會在登機當天生效喔！'
-            }
-        };
-
-        // App States
         let appState = {
             checklist: JSON.parse(JSON.stringify(defaultChecklist)),
-            departureDate: '',
-            draftHotel: 'THE PLAZA Seoul',
-            draftAddress: '119 Sogong-ro, Jung-gu, Seoul',
-            draftPhone: '+82 2-771-2200',
-            activeTab: 'entry'
+            departureDate: ''
         };
 
         window.onload = function() {
             loadState();
             renderChecklists();
             setupCountdown();
-            setupDraftListeners();
-            setupCurrencyConverter();
         };
 
-        // Save State
         function saveState() {
-            localStorage.setItem('korea_round_travel_2026', JSON.stringify(appState));
+            localStorage.setItem('korea_travel_companion_2026_clean', JSON.stringify(appState));
         }
 
-        // Load State
         function loadState() {
-            const saved = localStorage.getItem('korea_round_travel_2026');
+            const saved = localStorage.getItem('korea_travel_companion_2026_clean');
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
-                    if (parsed.checklist) appState.checklist = parsed.checklist;
-                    
-                    // Force update group1 to align with newest modified items
-                    appState.checklist.group1 = JSON.parse(JSON.stringify(defaultChecklist.group1));
-                    
-                    // Filter out removed items from group3
-                    appState.checklist.group3 = appState.checklist.group3.filter(i => i.id !== 'item-custom-2' && i.id !== 'item-custom-new-traffic');
-                    
-                    // Remove group2 completely if present
-                    if (appState.checklist.group2) {
-                        delete appState.checklist.group2;
-                    }
+                    if (parsed.checklist) {
+                        // Validate and merge default lists so updates (e.g. 5th e-arrival card bullet) are always present
+                        const mergedChecklist = JSON.parse(JSON.stringify(defaultChecklist));
+                        
+                        // Merge group 1 checks
+                        mergedChecklist.group1.forEach(defaultItem => {
+                            const found = parsed.checklist.group1.find(savedItem => savedItem.id === defaultItem.id);
+                            if (found) defaultItem.checked = found.checked;
+                        });
 
-                    // Fallback validation for dynamic checklist modifications (ensure esim is there)
-                    if (!appState.checklist.group3.some(i => i.id === 'item-esim-roaming')) {
-                        appState.checklist.group3 = [
-                            { id: 'item-esim-roaming', text: '開通門號國際漫遊或購買 e-SIM', checked: false },
-                            ...appState.checklist.group3.filter(i => i.id !== 'item-esim-roaming')
-                        ];
-                    }
+                        // Merge group 2 checks (retaining custom items if any)
+                        const savedGroup2Ids = defaultChecklist.group2.map(i => i.id);
+                        const savedCustoms = parsed.checklist.group2.filter(i => !savedGroup2Ids.includes(i.id));
 
-                    // Dynamically update old data text to remove "雙幣" without requiring reset
-                    const customCreditCardItem = appState.checklist.group3.find(i => i.id === 'item-custom-1');
-                    if (customCreditCardItem) {
-                        customCreditCardItem.text = '適量韓元現金與具有海外高回饋的信用卡';
+                        mergedChecklist.group2.forEach(defaultItem => {
+                            const found = parsed.checklist.group2.find(savedItem => savedItem.id === defaultItem.id);
+                            if (found) defaultItem.checked = found.checked;
+                        });
+                        
+                        mergedChecklist.group2 = [...mergedChecklist.group2, ...savedCustoms];
+                        appState.checklist = mergedChecklist;
                     }
-
                     if (parsed.departureDate) {
                         appState.departureDate = parsed.departureDate;
                         document.getElementById('departure-date').value = parsed.departureDate;
                     }
-                    if (parsed.draftHotel) {
-                        appState.draftHotel = parsed.draftHotel;
-                    }
-                    if (parsed.draftAddress) {
-                        appState.draftAddress = parsed.draftAddress;
-                    }
-                    if (parsed.draftPhone) {
-                        appState.draftPhone = parsed.draftPhone;
-                    }
                 } catch (e) {
-                    console.error("Local state loading issue.", e);
+                    console.error("Local storage loading issue.", e);
                 }
             }
-            
-            // Render UI fields
-            document.getElementById('draft-hotel').value = appState.draftHotel;
-            document.getElementById('draft-address').value = appState.draftAddress;
-            document.getElementById('draft-phone').value = appState.draftPhone;
         }
 
-        // TAB SWITCHER CONTROLLER
-        function switchTab(tabId) {
-            appState.activeTab = tabId;
-            saveState();
-
-            const entryContent = document.getElementById('tab-content-entry');
-            const smartpassContent = document.getElementById('tab-content-smartpass');
-            const entryBtn = document.getElementById('tab-btn-entry');
-            const smartpassBtn = document.getElementById('tab-btn-smartpass');
-
-            if (tabId === 'entry') {
-                entryContent.classList.remove('hidden');
-                smartpassContent.classList.add('hidden');
-                
-                entryBtn.className = "flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 bg-brand-teal text-white shadow-sm";
-                smartpassBtn.className = "flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 text-brand-slate/60 hover:text-brand-slate";
-                showToast('已切換至入境準備與行前打包指南！', 'success');
-            } else {
-                entryContent.classList.add('hidden');
-                smartpassContent.classList.remove('hidden');
-
-                entryBtn.className = "flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 text-brand-slate/60 hover:text-brand-slate";
-                smartpassBtn.className = "flex-1 py-3 px-4 rounded-xl text-xs md:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 bg-brand-teal text-white shadow-sm";
-                showToast('已切換至出境人臉辨識 Smart Pass 指南！', 'success');
-            }
-        }
-
-        // SMART PASS STEP INTERACTIVITY
-        function selectSpStep(stepNum) {
-            // Unset active class on all buttons
-            for (let i = 1; i <= 5; i++) {
-                const btn = document.getElementById(`sp-btn-${i}`);
-                if (btn) {
-                    btn.className = "py-2 px-1 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
-                }
-            }
-
-            // Set active class on target button
-            const activeBtn = document.getElementById(`sp-btn-${stepNum}`);
-            if (activeBtn) {
-                activeBtn.className = "py-2 px-1 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
-            }
-
-            // Render details
-            const stepData = spSteps[stepNum];
-            document.getElementById('sp-step-icon').innerText = stepData.icon;
-            document.getElementById('sp-step-title').innerText = stepData.title;
-            document.getElementById('sp-step-desc').innerText = stepData.desc;
-            document.getElementById('sp-step-tip').innerHTML = stepData.tip;
-            
-            showToast(`正在讀取 Step ${stepNum} 步驟圖解與註冊重點`, 'info');
-        }
-
-        // RENDER ENTRY CHECKLISTS
         function renderChecklists() {
             renderGroup('checklist-group-1', appState.checklist.group1, 'group1');
-            renderGroup('checklist-group-3', appState.checklist.group3, 'group3');
+            renderGroup('checklist-group-2', appState.checklist.group2, 'group2');
         }
 
         function renderGroup(elementId, items, groupKey) {
@@ -1006,7 +849,8 @@
                 const checkedBgClass = isChecked ? 'bg-brand-cream border-brand-sand text-brand-slate/40' : 'bg-white border-brand-sand hover:border-brand-teal text-brand-slate';
                 const checkedTextClass = isChecked ? 'line-through text-brand-slate/40 font-medium' : 'font-semibold';
                 const checkboxStyle = isChecked ? 'bg-brand-teal border-brand-teal text-white' : 'border-brand-sand bg-brand-cream';
-                
+                const isDefault = (groupKey === 'group1') || (item.id === 'item-roaming' || item.id === 'item-cash');
+
                 const itemDiv = document.createElement('div');
                 itemDiv.className = `todo-item flex items-center justify-between p-3.5 border rounded-2xl transition-all duration-300 ${checkedBgClass}`;
                 
@@ -1017,7 +861,7 @@
                         </div>
                         <span class="text-xs leading-relaxed ${checkedTextClass}">${item.text}</span>
                     </div>
-                    ${groupKey === 'group3' ? `
+                    ${!isDefault ? `
                         <button onclick="deleteCustomItem(${index}); event.stopPropagation();" class="text-brand-slate/40 hover:text-brand-coral p-1.5 transition-colors duration-200">
                             <i class="fa-regular fa-trash-can text-xs"></i>
                         </button>
@@ -1047,7 +891,7 @@
                 checked: false
             };
 
-            appState.checklist.group3.push(newItem);
+            appState.checklist.group2.push(newItem);
             saveState();
             renderChecklists();
             
@@ -1056,7 +900,7 @@
         }
 
         function deleteCustomItem(index) {
-            appState.checklist.group3.splice(index, 1);
+            appState.checklist.group2.splice(index, 1);
             saveState();
             renderChecklists();
             showToast('已刪除該自訂項目', 'info');
@@ -1066,29 +910,25 @@
             appState.checklist = JSON.parse(JSON.stringify(defaultChecklist));
             saveState();
             renderChecklists();
-            showToast('準備清單已重設為預設值！', 'info');
+            showToast('行前清單已重設為預設值！', 'info');
         }
 
-        // COUNTDOWN CALCULATION ENGINE
+        // Departure Countdown Calculator
         function setupCountdown() {
             const dateInput = document.getElementById('departure-date');
-            
             dateInput.addEventListener('change', function() {
                 appState.departureDate = this.value;
                 saveState();
                 calculateCountdown();
             });
-
             calculateCountdown();
         }
 
-        // Helper to format Date into human-readable traditional Chinese
         function formatDateCH(dateObj) {
             const mm = dateObj.getMonth() + 1;
             const dd = dateObj.getDate();
             const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-            const dayOfWeek = days[dateObj.getDay()];
-            return `${mm} 月 ${dd} 日 (${dayOfWeek})`;
+            return `${mm} 月 ${dd} 日 (${days[dateObj.getDay()]})`;
         }
 
         function calculateCountdown() {
@@ -1110,7 +950,6 @@
             const timeDiff = depDate.getTime() - today.getTime();
             const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-            // Gold e-Arrival window is strictly 3 days (72 hours) before flight departure date
             const goldStartDate = new Date(depDate);
             goldStartDate.setDate(depDate.getDate() - 3);
 
@@ -1118,11 +957,10 @@
                 display.innerText = '格式錯誤';
                 goldWindowContainer.classList.add('hidden');
             } else {
-                // Render countdown display
                 if (dayDiff > 0) {
                     display.innerHTML = `出發倒數 ${dayDiff} 天`;
                     if (dayDiff <= 3) {
-                        showToast('您的航班就在這三天！請務必儘速填寫完成 e-Arrival Card 入境申報哦！', 'success');
+                        showToast('您的航班就在這三天！請務必儘速填寫完成 e-Arrival Card 入境申報！', 'success');
                     }
                 } else if (dayDiff === 0) {
                     display.innerHTML = `🎉 今日啟航`;
@@ -1130,7 +968,6 @@
                     display.innerHTML = `已出發`;
                 }
 
-                // Render golden fill-out window
                 goldWindowContainer.classList.remove('hidden');
                 goldWindowText.innerHTML = `
                     您最理想的線上填寫時間為：<strong class="text-brand-coral font-bold">${formatDateCH(goldStartDate)}</strong> 起至起飛出發前。<br/>
@@ -1139,88 +976,34 @@
             }
         }
 
-        // Q-CODE ASSESSOR
-        function toggleQCode(status) {
-            const normalBtn = document.getElementById('btn-qcode-normal');
-            const symptomBtn = document.getElementById('btn-qcode-symptom');
-            const resultBox = document.getElementById('qcode-result-box');
-            const resultIcon = document.getElementById('qcode-result-icon');
-            const resultTitle = document.getElementById('qcode-result-title');
-            const resultDesc = document.getElementById('qcode-result-desc');
-
-            if (status === 'normal') {
-                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
-                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
-                
-                resultBox.className = "p-4 border transition-all duration-500 bg-brand-tealLight border-brand-teal/20 rounded-2xl";
-                resultIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
-                resultTitle.innerText = "免填 Q-Code 健康聲明";
-                resultDesc.innerHTML = "身體狀況良好的情況下，入境韓國<b>不需</b>申報 Q-Code 或填寫黃色紙本健康聲明。直接通關入境即可！";
-            } else {
-                symptomBtn.className = "py-2.5 px-2 font-extrabold text-xs text-center transition-all duration-300 rounded-xl bg-brand-teal text-white shadow-sm";
-                normalBtn.className = "py-2.5 px-2 font-extrabold text-xs text-brand-slate/60 hover:text-brand-slate text-center transition-all duration-300 rounded-xl";
-                
-                resultBox.className = "p-4 border transition-all duration-500 bg-brand-coralLight border-brand-coral/20 rounded-2xl";
-                resultIcon.innerHTML = `<i class="fa-solid fa-circle-exclamation text-brand-coral"></i>`;
-                resultTitle.innerText = "建議事前登錄 Q-Code";
-                resultDesc.innerHTML = "入境時若身體有發燒不適、疑似疑似咳嗽，或曾造訪法定傳染風險地區，建議在起飛前登錄 <b>Q-Code 官方網站</b> 填妥資訊，下機後出示 QR 碼掃描即能快速接受檢疫，順利入境！";
-            }
-        }
-
-        // INTERACTIVE FAQ TOGGLER
-        function toggleFaq(id) {
-            const content = document.getElementById(`${id}-content`);
-            const icon = document.getElementById(`${id}-icon`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = "rotate(180deg)";
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = "rotate(0deg)";
-            }
-        }
-
-        // COPY ASSETS & INPUT LISTENERS
-        function setupDraftListeners() {
-            const fields = ['draft-hotel', 'draft-address', 'draft-phone'];
-            fields.forEach(fieldId => {
-                document.getElementById(fieldId).addEventListener('input', function() {
-                    const stateKey = fieldId.replace('draft-', 'draft').replace('hotel', 'Hotel').replace('address', 'Address').replace('phone', 'Phone');
-                    appState[stateKey] = this.value;
-                    saveState();
-                });
-            });
-        }
-
-        function setupCurrencyConverter() {
+        // Currency converter logic TWD <-> KRW (Rate: 47.8)
+        function convertCurrency(target) {
             const twdInput = document.getElementById('calc-twd');
             const krwInput = document.getElementById('calc-krw');
-            const rate = 47.8; // Set exactly to 47.8 as requested
+            const rate = 47.8;
 
-            twdInput.addEventListener('input', function() {
-                const twdValue = parseFloat(this.value);
-                if (!isNaN(twdValue)) {
-                    krwInput.value = Math.round(twdValue * rate);
-                } else {
+            if (target === 'twd') {
+                const twdVal = parseFloat(twdInput.value);
+                if (isNaN(twdVal) || twdVal <= 0) {
                     krwInput.value = '';
-                }
-            });
-
-            krwInput.addEventListener('input', function() {
-                const krwValue = parseFloat(this.value);
-                if (!isNaN(krwValue)) {
-                    twdInput.value = Math.round((krwValue / rate) * 10) / 10;
                 } else {
-                    twdInput.value = '';
+                    krwInput.value = Math.round(twdVal * rate);
                 }
-            });
+            } else {
+                const krwVal = parseFloat(krwInput.value);
+                if (isNaN(krwVal) || krwVal <= 0) {
+                    twdInput.value = '';
+                } else {
+                    twdInput.value = (krwVal / rate).toFixed(1);
+                }
+            }
         }
 
+        // Copy Note Field Helper
         function copyDraft(fieldId) {
             const input = document.getElementById(fieldId);
             if (!input.value.trim()) {
-                showToast('請先在此欄位輸入文字以便複製備用哦。', 'warning');
+                showToast('無可用文字複製。', 'warning');
                 return;
             }
             
@@ -1232,14 +1015,87 @@
                 if (successful) {
                     showToast('已複製資訊至剪貼簿！可直接貼在官方申報欄位。', 'success');
                 } else {
-                    showToast('複製失敗，請嘗試手動反白複製文字。', 'warning');
+                    showToast('複製失敗，請手動反白複製。', 'warning');
                 }
             } catch (err) {
-                showToast('因瀏覽器限制，請手動圈選複製文字。', 'warning');
+                showToast('請手動複製文字。', 'warning');
             }
         }
 
-        // TOAST ENGINE
+        // Smart Pass Multi-Step Instructions Content
+        const smartPassSteps = {
+            1: {
+                icon: '📥',
+                title: '步驟 1：下載 APP',
+                desc: '在 App Store 或 Google Play 搜尋下載「ICN Smartpass」或「Smart Pass」並開啟。',
+                tip: '<b>所需工具：</b>iOS 或 Android 智慧型手機、通順的網路環境。'
+            },
+            2: {
+                icon: '👤',
+                title: '步驟 2：註冊會員',
+                desc: '打開 APP 後，使用電子郵件地址(Email)進行驗證、填寫手機號碼，並同意使用者協定以登錄註冊會員。',
+                tip: '<b>所需登錄：</b>準備好 Email 郵箱、常用手機號碼與 Passport 基本資訊。'
+            },
+            3: {
+                icon: '📸',
+                title: '步驟 3：掃描護照',
+                desc: '翻開至護照照片個人資訊頁，使用手機相機進行對焦掃描。隨後需利用手機的 NFC 感應功能（需貼近護照封底晶片），以讀取護照內的加密晶片資訊。',
+                tip: '<b>感應秘訣：</b>部分手機殼因厚度容易造成 NFC 感應中斷，建議拆除手機殼，並緊貼護照本封底進行讀取。'
+            },
+            4: {
+                icon: '🤳',
+                title: '步驟 4：人臉註冊',
+                desc: '依照 APP 畫面上的引導與鏡頭光圈指示，面部正對手機鏡頭進行自拍。系統將自動比對並完成人臉特徵的雲端註冊。',
+                tip: '<b>自拍秘訣：</b>拍照時請選擇光線充足的環境，且勿配戴口罩、帽子或反光度強的粗框眼鏡。'
+            },
+            5: {
+                icon: '🎫',
+                title: '步驟 5：綁定登機資訊',
+                desc: '每次出發當日辦理完航司報到後，可直接用手機相機掃描實體登機證(Boarding Pass)條碼、電子登機證 QR 碼，或手動輸入當次起飛的航班資訊。',
+                tip: '<b>提醒：</b>雖然人臉資訊登錄一次可儲存長達 5 年，但每次要離開韓國仁川機場前，皆需要重新登入綁定「當次出境登機證」喔！'
+            }
+        };
+
+        function showStep(num) {
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`sp-btn-${i}`);
+                if (i === num) {
+                    btn.className = "py-3 font-extrabold text-xs text-center rounded-xl bg-brand-teal text-white shadow-sm transition-all duration-300";
+                } else {
+                    btn.className = "py-3 font-extrabold text-xs text-center rounded-xl text-brand-slate/50 hover:text-brand-slate transition-all duration-300";
+                }
+            }
+
+            const data = smartPassSteps[num];
+            document.getElementById('sp-step-icon').innerText = data.icon;
+            document.getElementById('sp-step-title').innerText = data.title;
+            document.getElementById('sp-step-desc').innerHTML = data.desc;
+            document.getElementById('sp-step-tip').innerHTML = data.tip;
+
+            // Conditional visibility for APP Download Links (Only on Step 1)
+            const storeBtnContainer = document.getElementById('sp-store-buttons');
+            if (num === 1) {
+                storeBtnContainer.classList.remove('hidden');
+            } else {
+                storeBtnContainer.classList.add('hidden');
+            }
+        }
+
+        // Accordion FAQ controller
+        function toggleFaq(num) {
+            const answer = document.getElementById(`faq-answer-${num}`);
+            const chevron = document.getElementById(`faq-chevron-${num}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                chevron.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+            }
+        }
+
+        // Custom Toast Notifications
         let toastTimeout;
         function showToast(message, type = 'info') {
             const toast = document.getElementById('notification-toast');
@@ -1257,7 +1113,6 @@
             }
 
             msg.innerText = message;
-            
             toast.classList.remove('hidden');
 
             toastTimeout = setTimeout(() => {
