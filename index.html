@@ -48,11 +48,13 @@
             }
         }
      </script>
-    <style>
+   <style>
+        /* Apply rounded fonts globally to the document */
         body {
             font-family: 'Fredoka', 'M PLUS Rounded 1c', 'Noto Sans TC', sans-serif;
             background-color: #fbf9f4;
         }
+        /* Delicate rounded scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -73,11 +75,12 @@
     <!-- Premium top colorful bar -->
     <div class="h-[6px] w-full bg-gradient-to-r from-brand-teal via-brand-coral to-brand-gold"></div>
 
-    <!-- Main Container -->
+    <!-- Main Fluid Container -->
     <main class="flex-grow container mx-auto px-6 py-8 max-w-5xl">
         
-        <!-- Header -->
+        <!-- Modern Rounded Editorial Header -->
         <header class="text-center mb-8 relative py-10 px-6 bg-white rounded-[32px] border border-brand-sand shadow-soft-md overflow-hidden">
+            <!-- Background floating plane shape for playfulness -->
             <div class="absolute -right-12 -bottom-12 text-[150px] opacity-[0.04] rotate-[15deg] pointer-events-none select-none">✈️</div>
             
             <span class="inline-flex items-center gap-1.5 bg-brand-teal/10 text-brand-tealDark text-xs font-semibold px-4 py-2 rounded-full mb-6 border border-brand-teal/20">
@@ -88,7 +91,7 @@
                 SEOUL GO! <span class="text-brand-coral font-bold italic">2026</span>
             </h1>
             
-            <!-- Paragraph layout with exact requested formatting -->
+            <!-- Paragraph layout optimized with precise line breaks as requested -->
             <p class="text-brand-slate/80 text-sm md:text-base font-semibold max-w-2xl mx-auto leading-relaxed text-center">
                 首爾雙向秒速通關指南！2026 韓國免簽與 K-ETA 豁免最新規定全面收錄。<br/>
                 從「入境前 e-Arrival 電子申報」到「回程出境 Smart Pass 人臉辨識」，<br/>
@@ -107,12 +110,15 @@
 
         <!-- Premium Elegant Tab Switcher -->
         <div class="flex justify-center mb-8">
-            <div class="inline-flex p-1.5 bg-white border border-brand-sand rounded-[24px] shadow-soft-sm">
-                <button id="tab-btn-entry" onclick="switchTab('entry')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm">
+            <div class="inline-flex p-1.5 bg-white border border-brand-sand rounded-[24px] shadow-soft-sm overflow-x-auto max-w-full">
+                <button id="tab-btn-entry" onclick="switchTab('entry')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm whitespace-nowrap">
                     ✈️ 入境與行前準備
                 </button>
-                <button id="tab-btn-exit" onclick="switchTab('exit')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate">
+                <button id="tab-btn-exit" onclick="switchTab('exit')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap">
                     ✨ 出境 Smart Pass 指南
+                </button>
+                <button id="tab-btn-ses" onclick="switchTab('ses')" class="flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap">
+                    🎫 SeS 自動通關指南
                 </button>
             </div>
         </div>
@@ -202,7 +208,7 @@
             <!-- Checklist & Diagnostic Split Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Left: Checklist -->
+                <!-- Left Side Checklist (7 Cols) -->
                 <div class="lg:col-span-7 bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                     <div class="flex items-start justify-between mb-6 flex-wrap gap-4">
                         <div>
@@ -230,7 +236,7 @@
                             </h4>
                             <div class="space-y-2.5 mb-4" id="checklist-group-2"></div>
 
-                            <!-- New Custom Item Input -->
+                            <!-- Custom item insert input -->
                             <div class="flex gap-2 mt-4 bg-brand-cream p-1.5 rounded-2xl border border-brand-sand">
                                 <input type="text" id="new-item-input" placeholder="加點隨身好物...如轉接頭、隨身小包" class="flex-1 bg-transparent text-xs px-3 py-2.5 rounded-xl border-none focus:outline-none placeholder:text-brand-slate/30" />
                                 <button onclick="addNewChecklistItem()" class="bg-brand-teal hover:bg-brand-tealDark text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all shadow-sm active:scale-95">
@@ -241,7 +247,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Q-Code Diagnostic & Draft Notes -->
+                <!-- Right Side: Q-Code and Copy Area (5 Cols) -->
                 <div class="lg:col-span-5 flex flex-col gap-6">
                     
                     <!-- Q-Code Diagnostic -->
@@ -276,7 +282,7 @@
                         </div>
                     </div>
 
-                    <!-- Draft Copy Area (Predefined details) -->
+                    <!-- Draft Copy Area -->
                     <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                         <div class="mb-4">
                             <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📝 申報快速複製本</h2>
@@ -333,7 +339,7 @@
                 <div class="border border-brand-gold/30 bg-amber-50 p-5 text-brand-slate text-xs rounded-2xl mb-6 flex gap-3.5 leading-relaxed">
                     <span class="text-brand-gold text-lg mt-0.5"><i class="fa-solid fa-circle-exclamation"></i></span>
                     <div>
-                        <strong class="font-extrabold uppercase tracking-wider block mb-1">🚨 🚨 防網路詐騙安全提醒 / Anti-Scam</strong>
+                        <strong class="font-extrabold uppercase tracking-wider block mb-1">🚨 防網路詐騙安全提醒 / Anti-Scam</strong>
                         目前網路上有大量假冒官方政府的條碼代辦網頁。**線上申報入境卡（e-Arrival Card）是完全免費的服務**，千萬不要付代辦費！認明網址後綴為 <strong class="underline font-extrabold text-brand-tealDark">.go.kr</strong> 的才是正牌韓國政府官網。
                     </div>
                 </div>
@@ -450,7 +456,7 @@
                                 飛機在韓國降落、滑行時即可網路暢通，第一時間出示電子入境 QR 碼通關。請記得在台灣起飛前就掃描好 eSIM 的 QR-Code。
                             </p>
                         </div>
-                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-gold font-bold">起飛前預先裝好</span>
+                        <span class="mt-4 text-[9px] uppercase tracking-wider text-brand-gold font-bold">起飛前預裝</span>
                     </div>
 
                     <!-- Weather -->
@@ -473,7 +479,15 @@
         <!-- ================= TAB 2: EXIT (SMART PASS) CONTENT ================= -->
         <div id="tab-content-exit" class="hidden space-y-8">
             
-            <!-- Smart Pass 5-Step Card Catalog (Interactive explorer) -->
+            <!-- Smart Pass Fast-track Reminder Banner (Moved here to tab top!) -->
+            <div class="bg-brand-tealLight border border-brand-teal/25 p-4 md:p-5 rounded-[24px] shadow-soft-sm text-left flex gap-3.5 items-center">
+                <span class="text-brand-teal text-lg bg-white p-2.5 rounded-full shadow-sm shrink-0"><i class="fa-solid fa-bolt"></i></span>
+                <div class="text-xs text-brand-slate/85 font-extrabold leading-relaxed">
+                    💡 如遇到出境通關時人工通道排隊人流較多，提前申請 Smart Pass 可免除大排長龍的等待情形。
+                </div>
+            </div>
+
+            <!-- Smart Pass 5-Step Card Catalog -->
             <div class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
                 <div class="mb-6">
                     <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">✨ Smart Pass 快速通關註冊指南</h2>
@@ -568,11 +582,11 @@
                         <p class="text-xs font-bold text-brand-slate leading-normal">櫃檯或自助機台托運</p>
                     </div>
                     <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
-                        <span class="inline-block bg-brand-coral text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">3. 登錄登機證</span>
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">3. 登錄登機證</span>
                         <p class="text-xs font-bold text-brand-slate leading-normal">將登機證綁上App</p>
                     </div>
                     <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
-                        <span class="inline-block bg-brand-coral text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">4. 刷臉進管制</span>
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">4. 刷臉進管制</span>
                         <p class="text-xs font-bold text-brand-slate leading-normal">走橘色專用 FACE ID</p>
                     </div>
                     <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
@@ -580,8 +594,13 @@
                         <p class="text-xs font-bold text-brand-slate leading-normal">通過隨身行李安檢</p>
                     </div>
                     <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
-                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">6. 證照查驗</span>
-                        <p class="text-xs font-bold text-brand-slate leading-normal">以 SeS 通關查驗</p>
+                        <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">6. 出境審查</span>
+                        <p class="text-xs font-bold text-brand-slate leading-normal flex items-center justify-center gap-1 flex-wrap">
+                            人工通道 / Smart Pass通關
+                            <span class="inline-block bg-brand-coral/10 text-brand-coral text-[9px] px-1.5 py-0.5 rounded-md font-extrabold shrink-0">
+                                ⭐ 推薦
+                            </span>
+                        </p>
                     </div>
                     <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
                         <span class="inline-block bg-brand-teal text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">7. 購物與登機</span>
@@ -608,7 +627,7 @@
                             <span id="faq-chevron-1" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <div id="faq-answer-1" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
-                            每次註冊登錄的護照和臉部資訊，有效期限為5年。使用者需年滿7歲，未滿14歲需監護人的同意，每人分別以各自的手機 or 平板使用「Smart Pass」。
+                            每次註冊登錄的護照 and 臉部資訊，有效期限為 5 年。使用者需年滿 7 歲，未滿 14 歲需監護人的同意，每人分別以各自的手機 or 平板使用「Smart Pass」。
                         </div>
                     </div>
 
@@ -622,7 +641,7 @@
                             <span id="faq-chevron-2" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <div id="faq-answer-2" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
-                            於「Smart Pass」的有效期限內，無需再次登錄護照和臉部資訊，但每次要離開韓國之前，需要重新登錄當次的登機證。
+                            於「Smart Pass」的有效期限內，無需再次登錄護照 and 臉部資訊，但每次要離開韓國之前，需要重新登錄當次的登機證。
                         </div>
                     </div>
 
@@ -650,7 +669,7 @@
                             <span id="faq-chevron-4" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <div id="faq-answer-4" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
-                            不可以！登機的時候，還是需要實體登機證或電子登機證，Smart Pass不能完全取代登機證！即使有登錄「Smart Pass」，護照和登機證還是需要隨身攜帶！請勿放置托運行李內。
+                            不可以！登機的時候，還是需要實體登機證 or 電子登機證，Smart Pass不能完全取代登機證！即使有登錄「Smart Pass」，護照 and 登機證還是需要隨身攜帶！請勿放置托運行李內。
                         </div>
                     </div>
 
@@ -693,7 +712,7 @@
                             <span id="faq-chevron-7" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <div id="faq-answer-7" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
-                            「Smart Pass」為仁川機場「出境」時專用的APP，入境時無法使用喔！「Smart Pass」人臉辨識，和「SeS自動通關」，是兩個完全不同功能的APP。
+                            「Smart Pass」為仁川機場「出境」時專用的APP，入境時無法使用喔！「Smart Pass」人臉辨識， and 「SeS自動通關」，是兩個完全不同功能的APP。
                             <br/><br/>
                             <b>入境、出境</b>：可用「SeS自動通關」；「證照查驗」的過程，也可以使用SeS自動通關。常會來往韓國，強烈推薦辦SeS自動通關，可以加快入、出境韓國的速度。
                             <br/><br/>
@@ -705,9 +724,255 @@
 
         </div>
 
+        <!-- ================= TAB 3: SeS AUTO CLEARANCE CONTENT ================= -->
+        <div id="tab-content-ses" class="hidden space-y-8">
+            
+            <!-- High Traffic Warning Banner for SeS (Custom requested placement) -->
+            <section class="bg-brand-coralLight/80 border border-brand-coral/30 p-5 rounded-[24px] shadow-soft-sm text-left flex gap-4 items-start">
+                <span class="text-brand-coral text-xl bg-white p-2.5 rounded-full shadow-sm shrink-0"><i class="fa-solid fa-users-viewfinder"></i></span>
+                <div>
+                    <h3 class="font-bold text-sm text-brand-slate">💡 旅遊高峰期溫馨提醒</h3>
+                    <p class="text-xs text-brand-slate/85 mt-1.5 font-semibold leading-relaxed">
+                        因本次大家抵達的日期及航班為旅遊高峰期，容易遇到入境排隊人潮，特別提供 SeS 快速自動通關申辦指引供大家參考，讓您入境更順暢！
+                    </p>
+                </div>
+            </section>
+
+            <!-- Core Introduction & Requirements -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🎫 SeS 快速自動通關 (Smart Entry Service)</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">15秒超速通關，常飛首爾者之必辦神器</p>
+                </div>
+
+                <!-- Eligibility Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-brand-tealLight/40 p-4 rounded-2xl border border-brand-teal/10 text-center">
+                        <span class="text-xl">🛂</span>
+                        <h4 class="font-bold text-xs text-brand-slate mt-2">晶片護照</h4>
+                        <p class="text-[10px] text-brand-slate/60 mt-1 leading-normal">持台灣普通晶片護照<br/>效期滿 6 個月以上</p>
+                    </div>
+                    <div class="bg-brand-coralLight/40 p-4 rounded-2xl border border-brand-coral/10 text-center">
+                        <span class="text-xl">🎂</span>
+                        <h4 class="font-bold text-xs text-brand-slate mt-2">年滿 17 歲</h4>
+                        <p class="text-[10px] text-brand-slate/60 mt-1 leading-normal">限年齡達 17 歲以上<br/>且在韓國無犯罪紀錄</p>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-2xl border border-brand-gold/10 text-center">
+                        <span class="text-xl">🆓</span>
+                        <h4 class="font-bold text-xs text-brand-slate mt-2">手續費全免</h4>
+                        <p class="text-[10px] text-brand-slate/60 mt-1 leading-normal">首次申辦與後續使用<br/>完全免收任何規費</p>
+                    </div>
+                    <div class="bg-brand-cream p-4 rounded-xl border border-brand-sand text-center">
+                        <span class="text-xl">📅</span>
+                        <h4 class="font-bold text-xs text-brand-slate mt-2">效期長度</h4>
+                        <p class="text-[10px] text-brand-slate/60 mt-1 leading-normal">效期與您的護照相同<br/>換新護照才需重辦</p>
+                    </div>
+                </div>
+
+                <!-- 2026 Special Entry Notice -->
+                <div class="border border-brand-gold/30 bg-amber-50/50 p-5 rounded-2xl text-xs leading-relaxed space-y-3">
+                    <div class="flex gap-3.5">
+                        <span class="text-brand-gold text-lg mt-0.5"><i class="fa-solid fa-sparkles animate-pulse"></i></span>
+                        <div class="space-y-2">
+                            <strong class="font-extrabold uppercase tracking-wider block text-brand-slate text-sm">💡 韓國入境免等即辦突破！ (極重要)</strong>
+                            <p class="text-brand-slate/80">
+                                持台灣、德國、港澳護照的旅客，<b>不用先走一般人工通道</b>！可以直接在入境審查前（各指定機場查驗前櫃檯）現場進行 SeS 申辦並於當次直接使用，秒省排一般外國人入境長龍的大把時間！
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-brand-gold/20 pt-3 pl-8 space-y-2 text-[11px] text-brand-slate/75 font-medium">
+                        <div class="flex items-start gap-2">
+                            <span class="text-brand-coral"><i class="fa-solid fa-user-group"></i></span>
+                            <p>
+                                <b>📢 現場人流引導：</b> 現在各機場在入境排隊通關時，如遇人流較大，會有工作人員現場引導辦理 SeS，下機排隊時可密切留意現場人員的引導與廣播情形。
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-brand-gold"><i class="fa-solid fa-clock"></i></span>
+                            <p>
+                                <b>⚠️ 櫃檯彈性營業：</b> 入境審查前的 SeS 申辦區域仍有機率會因當天排班、臨時流量或航班狀況，導致部分櫃檯提早關閉，實際受理情形需要視當天現場狀況為準喔！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SeS Step-by-Step Flowchart -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📋 SeS 申辦 4 步驟</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">由工作人員協助，3分鐘即登錄完畢</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="p-4 bg-brand-cream rounded-2xl border border-brand-sand">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand-teal text-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">1</span>
+                            <h4 class="font-extrabold text-xs text-brand-slate">出示有效護照</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 font-medium leading-relaxed">親自攜帶有效期滿 6 個月的晶片護照，前往任一申辦中心。</p>
+                    </div>
+
+                    <div class="p-4 bg-brand-cream rounded-2xl border border-brand-sand">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand-teal text-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">2</span>
+                            <h4 class="font-extrabold text-xs text-brand-slate">臉部特徵照相</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 font-medium leading-relaxed">配合現場相機拍攝正面清晰照片，請勿配戴有反光粗框或帽子眼鏡。</p>
+                    </div>
+
+                    <div class="p-4 bg-brand-cream rounded-2xl border border-brand-sand">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand-teal text-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">3</span>
+                            <h4 class="font-extrabold text-xs text-brand-slate">感應登記指紋</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 font-medium leading-relaxed">依指示將雙手食指平放在指紋機上，掃描記錄高精度指紋特徵。</p>
+                    </div>
+
+                    <div class="p-4 bg-brand-coralLight/50 rounded-2xl border border-brand-coral/20">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-brand-coral text-white w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">4</span>
+                            <h4 class="font-extrabold text-xs text-brand-slate">完成登錄開通</h4>
+                        </div>
+                        <p class="text-[11px] text-brand-slate/70 font-medium leading-relaxed">審查成功後，海關會直接貼上「自動通關貼紙」或完成內部晶片連結，立即可用！</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SeS Registration Center Selector -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md space-y-6">
+                <div>
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">📍 SeS 申辦地點與營業時間查詢</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">點擊下方按鈕，即時於下方顯示對應申辦位置及櫃檯時間</p>
+                </div>
+
+                <!-- Locations Buttons Container (3 buttons for maximum spatial balance) -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button onclick="showSesCenter('icn-t1')" id="ses-btn-icn-t1" class="py-3 px-4 font-bold text-xs text-center rounded-xl bg-brand-teal text-white shadow-sm transition-all duration-300">
+                        ✈️ 仁川國際機場 (T1)
+                    </button>
+                    <button onclick="showSesCenter('icn-t2')" id="ses-btn-icn-t2" class="py-3 px-4 font-bold text-xs text-center rounded-xl bg-brand-cream border border-brand-sand text-brand-slate hover:bg-brand-tealLight transition-all duration-300">
+                        ✈️ 仁川國際機場 (T2)
+                    </button>
+                    <button onclick="showSesCenter('gmp')" id="ses-btn-gmp" class="py-3 px-4 font-bold text-xs text-center rounded-xl bg-brand-cream border border-brand-sand text-brand-slate hover:bg-brand-tealLight transition-all duration-300">
+                        ✈️ 金浦國際機場 (GMP)
+                    </button>
+                </div>
+
+                <!-- Detail Panel Container -->
+                <div class="bg-brand-tealLight/30 border border-brand-teal/15 p-6 rounded-2xl flex flex-col justify-between min-h-[220px] transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-white p-2.5 rounded-xl shadow-sm text-xl text-brand-teal animate-bounce" id="ses-center-icon">✈️</span>
+                            <div>
+                                <h4 class="font-extrabold text-base text-brand-slate" id="ses-center-title">仁川國際機場 第 1 航廈</h4>
+                                <p class="text-[10px] text-brand-tealDark font-extrabold tracking-wider uppercase" id="ses-center-subtitle">ICN AIRPORT TERMINAL 1</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Location and Time with nice icons -->
+                        <div class="space-y-4 text-xs leading-relaxed font-semibold text-brand-slate/85">
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-brand-coral mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                                <div>
+                                    <p class="font-bold">登記櫃檯位置 Location：</p>
+                                    <p class="text-brand-slate/65 mt-0.5" id="ses-center-loc">
+                                        1. 入境審查前：查驗大廳 A區 / F區 (僅限港澳台、德國護照現場辦理，下機直接通關)。<br/>
+                                        2. 出境查驗層：3樓出境大廳 H區報到櫃檯對面，靠近 4 號出發大廳 (管制區外)。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2.5">
+                                <span class="text-brand-teal mt-0.5"><i class="fa-solid fa-clock"></i></span>
+                                <div>
+                                    <p class="font-bold">服務營業時間 Business Hours：</p>
+                                    <p class="text-brand-slate/65 mt-0.5" id="ses-center-hours">
+                                        1. 入境審查前通道：每日 07:00 ~ 22:00。<br/>
+                                        2. 出境大廳 H區：每日 07:00 ~ 18:00 (週六、日均正常營業)。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-3 border-t border-brand-teal/10 text-[10px] text-brand-tealDark font-extrabold tracking-wide flex items-center gap-1.5" id="ses-center-tip">
+                        <i class="fa-solid fa-circle-info"></i> <b>貼心提醒：</b>入境前現場即辦極為搶手，建議入境排隊時向引導海關人員詢問指引。
+                    </div>
+                </div>
+            </section>
+
+            <!-- SeS FAQs accordion -->
+            <section class="bg-white border border-brand-sand p-6 md:p-8 rounded-[32px] shadow-soft-md">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-extrabold tracking-wide text-brand-slate">🙋‍♀️ SeS 自動通關 常見問題 FAQ</h2>
+                    <p class="text-xs text-brand-slate/50 mt-1 uppercase tracking-wider font-bold">解開您的入出境自動通關疑問</p>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Q1 -->
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleSesFaq(1)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q1</span>
+                                辦過 SeS 後，下次入境韓國還需要線上填報 e-Arrival Card 嗎？
+                            </span>
+                            <span id="ses-faq-chevron-1" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                        <div id="ses-faq-answer-1" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            <b>不需要！</b>成功登記好 SeS 自動通關後，您以後每次出、入境韓國，均可直接走自動化電子閘門查驗通關。官方系統會自動比對生物資料，您完全不需要事先在手機上填寫 e-Arrival Card，也不需要在機上填寫紙本入境卡囉！
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleSesFaq(2)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q2</span>
+                                換了新護照之後，我需要去韓國重新辦理 SeS 嗎？
+                            </span>
+                            <span id="ses-faq-chevron-2" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                        <div id="ses-faq-answer-2" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            <b>是的，絕對需要！</b>SeS 的自動通關綁定是直接寫入並讀取您申辦時的那本護照內之電子晶片與護照號碼。一旦更換、補辦新護照（不論號碼是否有變動），舊的綁定就會直接失效。您在第一次持新護照入境時，需先走人工通道入境，或是在仁川機場現場重新登錄新護照。
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleSesFaq(3)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q3</span>
+                                請問我可以幫不滿 17 歲的小孩一起在現場申辦 SeS 嗎？
+                            </span>
+                            <span id="ses-faq-chevron-3" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                        <div id="ses-faq-answer-3" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            <b>不可以。</b>台韓雙方的互惠自動通關規定中，SeS 的法定申請年齡為<b>必須年滿 17 歲以上</b>（這與僅需年滿7歲即可出境使用的仁川機場 Smart Pass 不同）。未滿 17 歲者，入境韓國時仍必須走一般外國人人工查驗通道。
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="border border-brand-sand rounded-2xl overflow-hidden bg-brand-cream">
+                        <button onclick="toggleSesFaq(4)" class="w-full text-left p-4 font-bold text-xs md:text-sm text-brand-slate flex items-center justify-between gap-3 focus:outline-none">
+                            <span class="flex items-center gap-2">
+                                <span class="bg-brand-coral/10 text-brand-coral px-2.5 py-1 rounded-lg text-xs font-extrabold shrink-0">Q4</span>
+                                在自動通關閘門如果指紋或人臉機器突然刷不過怎麼辦？
+                            </span>
+                            <span id="ses-faq-chevron-4" class="text-brand-slate/30 transition-transform"><i class="fa-solid fa-chevron-down"></i></span>
+                        </button>
+                        <div id="ses-faq-answer-4" class="hidden px-4 pb-4 text-xs text-brand-slate/75 leading-relaxed font-medium border-t border-brand-sand/50 pt-3">
+                            有時因手指稍微脫皮、太過乾燥，或是臉部過度遮擋，機器可能無法完成比對。如果發生這樣的情況，請不用驚慌，<b>旁邊均會有海關引導人員直接協助引導您改走人工櫃檯完成查驗</b>，這完全不影響您的合法出入境資格！
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
     </main>
 
-    <!-- Simple copyright credit -->
+    <!-- Simple premium warm copyright credit -->
     <div class="text-center py-6 text-[10px] font-bold tracking-widest text-brand-slate/30 uppercase bg-transparent border-t border-brand-sand/30">
         © 2026 Korea Travel Lab.
     </div>
@@ -718,20 +983,38 @@
         function switchTab(tab) {
             const entryTabBtn = document.getElementById('tab-btn-entry');
             const exitTabBtn = document.getElementById('tab-btn-exit');
+            const sesTabBtn = document.getElementById('tab-btn-ses');
+            
             const entryContent = document.getElementById('tab-content-entry');
             const exitContent = document.getElementById('tab-content-exit');
+            const sesContent = document.getElementById('tab-content-ses');
 
             if (tab === 'entry') {
-                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm";
-                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate";
+                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm whitespace-nowrap";
+                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                sesTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                
                 entryContent.classList.remove('hidden');
                 exitContent.classList.add('hidden');
-            } else {
-                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm";
-                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate";
+                sesContent.classList.add('hidden');
+            } else if (tab === 'exit') {
+                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm whitespace-nowrap";
+                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                sesTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                
                 exitContent.classList.remove('hidden');
                 entryContent.classList.add('hidden');
+                sesContent.classList.add('hidden');
                 showStep(1); // Default step for Smart Pass App Guide
+            } else if (tab === 'ses') {
+                sesTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 bg-brand-teal text-white shadow-sm whitespace-nowrap";
+                entryTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                exitTabBtn.className = "flex items-center gap-2 px-6 py-3 font-extrabold text-xs md:text-sm tracking-wider rounded-2xl transition-all duration-300 text-brand-slate/60 hover:text-brand-slate whitespace-nowrap";
+                
+                sesContent.classList.remove('hidden');
+                entryContent.classList.add('hidden');
+                exitContent.classList.add('hidden');
+                showSesCenter('icn-t1'); // Default center for SeS Location
             }
         }
 
@@ -799,7 +1082,7 @@
                 try {
                     const parsed = JSON.parse(saved);
                     if (parsed.checklist) {
-                        // Validate and merge default lists so updates (e.g. 5th e-arrival card bullet) are always present
+                        // Validate and merge default lists so updates are always present
                         const mergedChecklist = JSON.parse(JSON.stringify(defaultChecklist));
                         
                         // Merge group 1 checks
@@ -1039,7 +1322,7 @@
             3: {
                 icon: '📸',
                 title: '步驟 3：掃描護照',
-                desc: '翻開至護照照片個人資訊頁，使用手機相機進行對焦掃描。隨後需利用手機的 NFC 感應功能（需貼近護照封底晶片），以讀取護照內的加密晶片資訊。',
+                desc: '翻開至護照照片個人資訊頁，使用手機相機進行對焦掃描。隨後需利用手機的 NFC 功能（需貼近護照封底晶片），以讀取護照內的加密晶片資訊。',
                 tip: '<b>感應秘訣：</b>部分手機殼因厚度容易造成 NFC 感應中斷，建議拆除手機殼，並緊貼護照本封底進行讀取。'
             },
             4: {
@@ -1085,6 +1368,68 @@
         function toggleFaq(num) {
             const answer = document.getElementById(`faq-answer-${num}`);
             const chevron = document.getElementById(`faq-chevron-${num}`);
+
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                chevron.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+            }
+        }
+
+        // SeS Registration Centers Data (3 Airport Nodes)
+        const sesCenters = {
+            'icn-t1': {
+                icon: '✈️',
+                title: '仁川國際機場 第 1 航廈 (T1)',
+                subtitle: 'ICN AIRPORT TERMINAL 1',
+                loc: '1. <b>入境審查前 A/F區 櫃檯</b>：可於入境通關排隊前現場辦理，並當次立即自動通關。<br/>2. <b>管制區外</b>：3樓出境大廳 H 區 check-in 櫃檯對面，靠近 4 號出發大廳。',
+                hours: '1. <b>入境前現場點</b>：每日 07:00 ~ 22:00。<br/>2. <b>出境層 H區櫃檯</b>：每日 07:00 ~ 18:00 (含週末假日)。',
+                tip: '<b>貼心提醒：</b>入境前現場即辦為 2026 最新利多，持台灣護照旅客排隊下機後認清 SeS 引導牌即可直接前往辦理。'
+            },
+            'icn-t2': {
+                icon: '✈️',
+                title: '仁川國際機場 第 2 航廈 (T2)',
+                subtitle: 'ICN AIRPORT TERMINAL 2',
+                loc: '1. <b>入境審查前 A區 / F區</b>：入境通道前的專屬 SeS 查驗登錄區。<br/>2. <b>管制區外</b>：2樓政府綜合行政中心內，出入境服務處 (Immigration Affairs Center)。',
+                hours: '1. <b>入境前 A區</b>：24小時營業 / <b>F區</b>：每日 05:00 ~ 22:00。<br/>2. <b>2樓行政中心</b>：每日 07:00 ~ 18:00。',
+                tip: '<b>貼心提醒：</b>2航入境前的 A 區提供罕見的 24 小時不打烊辦理，搭乘紅眼航班的深夜旅客也可輕鬆辦理通關！'
+            },
+            'gmp': {
+                icon: '✈️',
+                title: '首爾金浦國際機場 (GMP)',
+                subtitle: 'GIMPO INTERNATIONAL AIRPORT',
+                loc: '2樓 出入境管理事務所（又稱「國民出入院室출입국민원실」，位於一般非管制區域內）。',
+                hours: '週一至週五：09:00 ~ 18:00 (平日營業，中午 12:00 ~ 13:00 為海關人員午休時間暫停受理).',
+                tip: '<b>貼心提醒：</b>金浦機場櫃檯週末及國定假日是不營業的喔！若是週末抵達，建議回程出境前或平日時段前往辦理。'
+            }
+        };
+
+        function showSesCenter(centerId) {
+            const keys = Object.keys(sesCenters);
+            keys.forEach(key => {
+                const btn = document.getElementById(`ses-btn-${key}`);
+                if (key === centerId) {
+                    btn.className = "py-3 px-4 font-bold text-xs text-center rounded-xl bg-brand-teal text-white shadow-sm transition-all duration-300";
+                } else {
+                    btn.className = "py-3 px-4 font-bold text-xs text-center rounded-xl bg-brand-cream border border-brand-sand text-brand-slate hover:bg-brand-tealLight transition-all duration-300";
+                }
+            });
+
+            const data = sesCenters[centerId];
+            document.getElementById('ses-center-icon').innerText = data.icon;
+            document.getElementById('ses-center-title').innerText = data.title;
+            document.getElementById('ses-center-subtitle').innerText = data.subtitle;
+            document.getElementById('ses-center-loc').innerHTML = data.loc;
+            document.getElementById('ses-center-hours').innerHTML = data.hours;
+            document.getElementById('ses-center-tip').innerHTML = `<i class="fa-solid fa-circle-info"></i> ${data.tip}`;
+        }
+
+        // SeS Accordion FAQ controller
+        function toggleSesFaq(num) {
+            const answer = document.getElementById(`ses-faq-answer-${num}`);
+            const chevron = document.getElementById(`ses-faq-chevron-${num}`);
 
             if (answer.classList.contains('hidden')) {
                 answer.classList.remove('hidden');
